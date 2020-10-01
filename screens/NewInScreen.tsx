@@ -1,11 +1,10 @@
 import React from "react";
-import { Text, StyleSheet, Button } from "react-native";
+import { Text, StyleSheet } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
-const HomeScreen = ({ navigation }) => (
+const NewInScreen = () => (
   <SafeAreaView style={styles.container}>
-    {/* <Text>Home</Text> */}
-    {/* <Button title="New In" onPress={() => navigation.navigate("NewIn")} /> */}
+    <Text>NewIn</Text>
   </SafeAreaView>
 );
 
@@ -18,4 +17,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default HomeScreen;
+export default NewInScreen;

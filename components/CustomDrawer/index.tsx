@@ -1,98 +1,100 @@
 import * as React from "react";
-import { View, Text, StyleSheet } from "react-native";
-import { DrawerContentScrollView, DrawerItem } from "@react-navigation/drawer";
+import { Text, StyleSheet, TouchableOpacity } from "react-native";
+import {
+  // DrawerContentScrollView,
+  DrawerContentComponentProps,
+} from "@react-navigation/drawer";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { Dimensions } from "react-native";
 import { AntDesign, Ionicons } from "@expo/vector-icons";
 
-const CustomDrawer = (props: Object) => (
+const CustomDrawer = ({ navigation }: DrawerContentComponentProps) => (
   <SafeAreaView style={styles.container}>
     {/* <DrawerContentScrollView {...props}> */}
-    <DrawerItem
-      label="New in"
-      onPress={() => {}}
-      style={styles.drawerItem}
-      labelStyle={styles.drawerItemTextTeal}
+    <AntDesign
+      name="close"
+      size={30}
+      style={styles.closeIcon}
+      onPress={() => navigation.closeDrawer()}
     />
-    <DrawerItem
-      label="Best sellers"
-      onPress={() => {}}
+    <TouchableOpacity
+      activeOpacity={0.7}
       style={styles.drawerItem}
-      labelStyle={styles.drawerItemTextTeal}
-    />
-    <DrawerItem
-      label="Pantry"
-      onPress={() => {}}
+      onPress={() => navigation.navigate("Home")}
+    >
+      <Text style={styles.drawerItemTextTeal}>New in</Text>
+    </TouchableOpacity>
+    <TouchableOpacity
+      activeOpacity={0.7}
       style={styles.drawerItem}
-      labelStyle={styles.drawerItemText}
-    />
-    <DrawerItem
-      label="Whole Foods"
-      onPress={() => {}}
+      // onPress={() => navigation.navigate("Home")}
+    >
+      <Text style={styles.drawerItemTextTeal}>Best sellers</Text>
+    </TouchableOpacity>
+    <TouchableOpacity
+      activeOpacity={0.7}
       style={styles.drawerItem}
-      labelStyle={styles.drawerItemText}
-    />
-    <DrawerItem
-      label="Favorites"
-      onPress={() => {}}
-      icon={() => (
-        <AntDesign name="hearto" size={25} style={styles.drawerItemIconHeart} />
-      )}
+      // onPress={() => navigation.navigate("Home")}
+    >
+      <Text style={styles.drawerItemText}>Pantry</Text>
+    </TouchableOpacity>
+    <TouchableOpacity
+      activeOpacity={0.7}
       style={styles.drawerItem}
-      labelStyle={styles.drawerItemTextSpecific}
-    />
-    <DrawerItem
-      label="Login"
-      onPress={() => {}}
-      icon={() => (
-        <Ionicons
-          name="md-happy"
-          size={25}
-          style={styles.drawerItemIconSmiley}
-        />
-      )}
+      // onPress={() => navigation.navigate("Home")}
+    >
+      <Text style={styles.drawerItemText}>Whole foods</Text>
+    </TouchableOpacity>
+    <TouchableOpacity
+      activeOpacity={0.7}
       style={styles.drawerItem}
-      labelStyle={styles.drawerItemTextSpecific}
-    />
+      // onPress={() => navigation.navigate("Home")}
+    >
+      <Text style={styles.drawerItemText}>Favorites</Text>
+      <AntDesign name="hearto" size={25} style={styles.drawerItemIcon} />
+    </TouchableOpacity>
+    <TouchableOpacity
+      activeOpacity={0.7}
+      style={styles.drawerItem}
+      // onPress={() => navigation.navigate("Home")}
+    >
+      <Text style={styles.drawerItemText}>Login</Text>
+      <Ionicons name="md-happy" size={25} style={styles.drawerItemIcon} />
+    </TouchableOpacity>
     {/* </DrawerContentScrollView> */}
   </SafeAreaView>
 );
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: Dimensions.get("window").height * 0.2,
+    height: "100%",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  closeIcon: {
+    position: "absolute",
+    top: 40,
+    left: 20,
   },
   drawerItem: {
+    width: "100%",
     marginVertical: 10,
-    // backgroundColor: "blue",
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+    height: 50,
   },
   drawerItemTextTeal: {
-    width: "110%",
-    // backgroundColor: "red",
-    textAlign: "center",
     color: "#17aba6",
-    fontSize: 16,
     fontFamily: "PTSans_700Bold",
+    fontSize: 16,
   },
   drawerItemText: {
-    width: "110%",
-    // backgroundColor: "red",
-    textAlign: "center",
-    color: "#212629",
-    fontSize: 16,
     fontFamily: "PTSans_700Bold",
-  },
-  drawerItemTextSpecific: {
-    // backgroundColor: "red",
-    color: "#212629",
     fontSize: 16,
-    fontFamily: "PTSans_700Bold",
+    color: "#212629",
   },
-  drawerItemIconHeart: {
-    marginLeft: Dimensions.get("window").width * 0.2,
-  },
-  drawerItemIconSmiley: {
-    marginLeft: Dimensions.get("window").width * 0.245,
+  drawerItemIcon: {
+    marginLeft: 20,
   },
 });
 
