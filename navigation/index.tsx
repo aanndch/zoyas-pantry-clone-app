@@ -47,6 +47,7 @@ const HomeStack = ({ navigation }: HomeStackProps) => (
     screenOptions={{
       headerStyle: {
         elevation: 0,
+        backgroundColor: "#fafafa",
       },
       headerLeftContainerStyle: {
         marginLeft: 20,
@@ -75,7 +76,7 @@ const HomeStack = ({ navigation }: HomeStackProps) => (
   >
     <Stack.Screen name="Home" component={HomeScreen} />
     <Stack.Screen name="ProductsScreen" component={ProductsScreen} />
-    <Stack.Screen name="ProductScreen" component={NewInScreen} />
+    {/* <Stack.Screen name="ProductScreen" component={ProductScreen} /> */}
   </Stack.Navigator>
 );
 
