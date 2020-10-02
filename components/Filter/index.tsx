@@ -43,6 +43,7 @@ const Filter = (props: FilterProps) => {
             />
           )}
           style={styles.filters}
+          showsVerticalScrollIndicator={false}
         />
       )}
     </View>

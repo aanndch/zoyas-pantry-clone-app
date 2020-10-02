@@ -6,6 +6,7 @@ export type DrawerParamList = {
   WholeFoods: undefined;
   Favorites: undefined;
   Login: undefined;
+  Cart: undefined;
 };
 
 export type HomeStackParamList = {
@@ -17,6 +18,10 @@ export type HomeStackParamList = {
 export type WishlistStackParamList = {
   Favorites: undefined;
   ProductScreen: undefined;
+};
+
+export type CartStackParamList = {
+  Cart: undefined;
 };
 
 export type ProductType = {

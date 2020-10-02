@@ -1,8 +1,9 @@
-import React, { useState } from "react";
-import { Text, View, Image, TouchableOpacity } from "react-native";
-import { AntDesign, Entypo } from "@expo/vector-icons";
+import React from "react";
+import { Text, View, Image } from "react-native";
+import { AntDesign } from "@expo/vector-icons";
 
 import styles from "./styles";
+import QuantitySelector from "../../components/QuantitySelector";
 import Button from "../../components/Button";
 
 interface ProductScreenProps {
@@ -11,8 +12,6 @@ interface ProductScreenProps {
 
 const ProductScreen = ({ route }: ProductScreenProps) => {
   const { product } = route.params;
-
-  const [quantity, setQuantity] = useState<number>(0);
 
   return (
     <View style={styles.container}>
@@ -28,22 +27,7 @@ const ProductScreen = ({ route }: ProductScreenProps) => {
         <Text style={styles.description}>{product.description}</Text>
         <View style={styles.footer}>
           <Text style={styles.price}>${product.price}</Text>
-          <View style={styles.quantitySelector}>
-            <TouchableOpacity
-              onPress={() => setQuantity(quantity - 1)}
-              activeOpacity={0.6}
-              disabled={quantity < 1}
-            >
-              <Entypo name="minus" size={20} color="#17aba6" />
-            </TouchableOpacity>
-            <Text style={styles.quantity}>{quantity}</Text>
-            <TouchableOpacity
-              onPress={() => setQuantity(quantity + 1)}
-              activeOpacity={0.6}
-            >
-              <Entypo name="plus" size={20} color="#17aba6" />
-            </TouchableOpacity>
-          </View>
+          <QuantitySelector />
         </View>
         <Button
           width={150}

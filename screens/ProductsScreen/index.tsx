@@ -28,6 +28,7 @@ const ProductsScreen = ({ navigation }: ProductsScreenProps) => (
       keyExtractor={(item) => item.id}
       ListHeaderComponent={() => <View style={{ marginVertical: 30 }} />}
       ListFooterComponent={() => <View style={{ marginVertical: 5 }} />}
+      showsVerticalScrollIndicator={false}
     />
   </SafeAreaView>
 );

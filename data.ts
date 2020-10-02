@@ -69,3 +69,30 @@ export const filters = [
     options: ["Vegan", "Organic"],
   },
 ];
+
+export const cart = [
+  {
+    id: 1,
+    name: "Maple Syrup",
+    imageUrl:
+      "https://zoyaspantry.com.au/wp-content/uploads/2020/05/9339337006265@2x-min-768x777.jpg",
+    price: 7.95,
+    category: "Sugars, Sweetners & Syrups",
+    description:
+      "Our 100% pure maple syrup is sourced from natural Canadian maple trees, is rich in flavour, and a healthier substitute to sugar. Drizzle on pancakes, waffles, yogurt, ice cream, oatmeal and more.",
+    inWishlist: false,
+    inStock: true,
+  },
+  {
+    id: 2,
+    name: "African PiriPiri",
+    imageUrl:
+      "https://zoyaspantry.com.au/wp-content/uploads/2020/05/9339337005633@2x-min-768x777.jpg",
+    price: 5.5,
+    category: "Salt & Spices",
+    description:
+      "Our 100% pure maple syrup is sourced from natural Canadian maple trees, is rich in flavour, and a healthier substitute to sugar. Drizzle on pancakes, waffles, yogurt, ice cream, oatmeal and more.",
+    inWishlist: true,
+    inStock: true,
+  },
+]

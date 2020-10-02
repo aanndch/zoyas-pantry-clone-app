@@ -5,9 +5,9 @@ import styles from "./styles";
 
 interface ButtonProps {
   text: string;
-  width: number;
+  width: number | string;
   onPressFn: () => void;
-  styles: Object;
+  styles?: Object;
 }
 
 const Button = ({
