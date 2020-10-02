@@ -3,7 +3,7 @@ import { useState } from "react";
 import { TouchableOpacity, Text, StyleSheet } from "react-native";
 
 const TotalCartItems = () => {
-  const [numberOfItemsInCart, setNumberOfItemsInCart] = useState(3);
+  const [numberOfItemsInCart, setNumberOfItemsInCart] = useState<number>(0);
 
   return (
     <TouchableOpacity style={styles.container}>

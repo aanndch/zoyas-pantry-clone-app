@@ -10,5 +10,6 @@ export type DrawerParamList = {
 
 export type HomeStackParamList = {
   Home: undefined;
-  NewIn: undefined;
+  ProductsScreen: undefined;
+  ProductScreen: undefined;
 };

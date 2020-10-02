@@ -1,12 +1,16 @@
 import * as React from "react";
 import { Image, StyleSheet } from "react-native";
-import { createDrawerNavigator } from "@react-navigation/drawer";
+import {
+  createDrawerNavigator,
+  DrawerNavigationProp,
+} from "@react-navigation/drawer";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { Feather } from "@expo/vector-icons";
 
 import HomeScreen from "../screens/HomeScreen";
 import NewInScreen from "../screens/NewInScreen";
+import ProductsScreen from "../screens/ProductsScreen";
 import CustomDrawer from "../components/CustomDrawer";
 import TotalCartItems from "../components/TotalCartItems";
 import { HomeStackParamList, DrawerParamList } from "../types";
@@ -34,7 +38,11 @@ const Navigation = () => (
   </NavigationContainer>
 );
 
-const HomeStack = ({ navigation }) => (
+interface HomeStackProps {
+  navigation: DrawerNavigationProp<HomeStackParamList>;
+}
+
+const HomeStack = ({ navigation }: HomeStackProps) => (
   <Stack.Navigator
     screenOptions={{
       headerStyle: {
@@ -66,7 +74,8 @@ const HomeStack = ({ navigation }) => (
     }}
   >
     <Stack.Screen name="Home" component={HomeScreen} />
-    <Stack.Screen name="NewIn" component={NewInScreen} />
+    <Stack.Screen name="ProductsScreen" component={ProductsScreen} />
+    <Stack.Screen name="ProductScreen" component={NewInScreen} />
   </Stack.Navigator>
 );
 

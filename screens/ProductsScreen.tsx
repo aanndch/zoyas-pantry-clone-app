@@ -1,20 +1,16 @@
+import { StackNavigationProp } from "@react-navigation/stack";
 import React from "react";
 import { Text, StyleSheet, Button } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-
-import { StackNavigationProp } from "@react-navigation/stack";
 import { HomeStackParamList } from "../types";
 
-interface HomeScreenProps {
+interface ProductsScreenProps {
   navigation: StackNavigationProp<HomeStackParamList>;
 }
 
-const HomeScreen = ({ navigation }: HomeScreenProps) => (
+const ProductsScreen = ({ navigation }: ProductsScreenProps) => (
   <SafeAreaView style={styles.container}>
-    <Button
-      title="New In"
-      onPress={() => navigation.navigate("ProductsScreen")}
-    />
+    <Text>Products Page</Text>
   </SafeAreaView>
 );
 
@@ -27,4 +23,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default HomeScreen;
+export default ProductsScreen;
