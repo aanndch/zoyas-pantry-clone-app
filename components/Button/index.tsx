@@ -7,13 +7,19 @@ interface ButtonProps {
   text: string;
   width: number;
   onPressFn: () => void;
+  styles: Object;
 }
 
-const Button = ({ text, onPressFn, width }: ButtonProps) => {
+const Button = ({
+  text,
+  onPressFn,
+  width,
+  styles: customStyles,
+}: ButtonProps) => {
   const buttonDimensions = { width };
 
   return (
-    <View>
+    <View style={customStyles}>
       <TouchableOpacity
         onPress={onPressFn}
         activeOpacity={0.8}

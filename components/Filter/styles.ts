@@ -1,7 +1,8 @@
-import { StyleSheet } from "react-native";
+import { Dimensions, StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
     backgroundColor: "#17aba6",
     position: "absolute",
     top: 0,
@@ -21,32 +22,21 @@ const styles = StyleSheet.create({
     marginLeft: 13,
   },
   filters: {
-    backgroundColor: "#ffffff",
-    zIndex: 1,
+    marginTop: 50,
     position: "absolute",
-    top: 55,
-    left: 0,
-    paddingHorizontal: 15,
+    minHeight: 300,
+    zIndex: 1,
+    maxHeight: Dimensions.get("window").height * 0.75,
     width: "100%",
+    paddingHorizontal: 25,
+    paddingVertical: 10,
+    backgroundColor: "#ffffff",
     borderRadius: 15,
     shadowColor: "#8d8d8d26",
     shadowOffset: { width: 0, height: 1 },
     shadowOpacity: 0.8,
     shadowRadius: 2,
     elevation: 25,
-  },
-  filter: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
-    paddingVertical: 15,
-    borderBottomWidth: 0.5,
-    borderBottomColor: "#ddd",
-  },
-  filterText: {
-    fontSize: 14,
-    fontFamily: "PTSans_700Bold",
-    letterSpacing: 0.3,
   },
 });
 

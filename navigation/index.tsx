@@ -9,11 +9,17 @@ import { createStackNavigator } from "@react-navigation/stack";
 import { Feather } from "@expo/vector-icons";
 
 import HomeScreen from "../screens/HomeScreen";
-import NewInScreen from "../screens/NewInScreen";
+// import NewInScreen from "../screens/NewInScreen";
 import ProductsScreen from "../screens/ProductsScreen";
+import ProductScreen from "../screens/ProductScreen";
 import CustomDrawer from "../components/CustomDrawer";
 import TotalCartItems from "../components/TotalCartItems";
-import { HomeStackParamList, DrawerParamList } from "../types";
+import {
+  HomeStackParamList,
+  DrawerParamList,
+  WishlistStackParamList,
+} from "../types";
+import WishlistScreen from "../screens/WishlistScreen";
 
 const Drawer = createDrawerNavigator<DrawerParamList>();
 
@@ -32,7 +38,7 @@ const Navigation = () => (
       <Drawer.Screen name="BestSellers" component={HomeScreen} />
       <Drawer.Screen name="Pantry" component={HomeScreen} />
       <Drawer.Screen name="WholeFoods" component={HomeScreen} />
-      <Drawer.Screen name="Favorites" component={HomeScreen} />
+      <Drawer.Screen name="Favorites" component={WishlistStack} />
       <Drawer.Screen name="Login" component={HomeScreen} />
     </Drawer.Navigator>
   </NavigationContainer>
@@ -40,6 +46,10 @@ const Navigation = () => (
 
 interface HomeStackProps {
   navigation: DrawerNavigationProp<HomeStackParamList>;
+}
+
+interface WishlistStackProps {
+  navigation: DrawerNavigationProp<WishlistStackParamList>;
 }
 
 const HomeStack = ({ navigation }: HomeStackProps) => (
@@ -76,7 +86,44 @@ const HomeStack = ({ navigation }: HomeStackProps) => (
   >
     <Stack.Screen name="Home" component={HomeScreen} />
     <Stack.Screen name="ProductsScreen" component={ProductsScreen} />
-    {/* <Stack.Screen name="ProductScreen" component={ProductScreen} /> */}
+    <Stack.Screen name="ProductScreen" component={ProductScreen} />
+  </Stack.Navigator>
+);
+
+const WishlistStack = ({ navigation }: WishlistStackProps) => (
+  <Stack.Navigator
+    screenOptions={{
+      headerStyle: {
+        elevation: 0,
+        backgroundColor: "#fafafa",
+      },
+      headerLeftContainerStyle: {
+        marginLeft: 20,
+      },
+      headerLeft: () => (
+        <Feather
+          name="menu"
+          size={35}
+          onPress={() => navigation.openDrawer()}
+        />
+      ),
+      headerTitleAlign: "center",
+      headerTitle: () => (
+        <Image
+          source={{
+            uri: `https://i.imgur.com/3QIa4mP.jpg`,
+          }}
+          style={styles.logo}
+        />
+      ),
+      headerRight: () => <TotalCartItems />,
+      headerRightContainerStyle: {
+        marginRight: 20,
+      },
+    }}
+  >
+    <Stack.Screen name="Favorites" component={WishlistScreen} />
+    <Stack.Screen name="ProductScreen" component={ProductScreen} />
   </Stack.Navigator>
 );
 

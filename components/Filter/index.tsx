@@ -1,8 +1,10 @@
 import React, { useState } from "react";
-import { View, Text, TouchableOpacity } from "react-native";
-import { AntDesign, Entypo } from "@expo/vector-icons";
+import { View, Text, TouchableOpacity, FlatList } from "react-native";
+import { AntDesign } from "@expo/vector-icons";
 
+import FilterItem from "./FilterItem";
 import styles from "./styles";
+import { filters } from "../../data";
 
 interface FilterProps {}
 
@@ -29,32 +31,19 @@ const Filter = (props: FilterProps) => {
         )}
       </TouchableOpacity>
       {isOpen && (
-        <View style={styles.filters}>
-          <View style={styles.filter}>
-            <Text style={styles.filterText}>Pantry</Text>
-            <Entypo name="chevron-down" size={20} />
-          </View>
-          <View style={styles.filter}>
-            <Text style={styles.filterText}>Sale</Text>
-            <Entypo name="chevron-down" size={20} />
-          </View>
-          <View style={styles.filter}>
-            <Text style={styles.filterText}>Brand</Text>
-            <Entypo name="chevron-down" size={20} />
-          </View>
-          <View style={styles.filter}>
-            <Text style={styles.filterText}>Price</Text>
-            <Entypo name="chevron-down" size={20} />
-          </View>
-          <View style={styles.filter}>
-            <Text style={styles.filterText}>Religious Based</Text>
-            <Entypo name="chevron-down" size={20} />
-          </View>
-          <View style={[styles.filter, { borderBottomWidth: 0 }]}>
-            <Text style={styles.filterText}>Dietary</Text>
-            <Entypo name="chevron-down" size={20} />
-          </View>
-        </View>
+        <FlatList
+          data={filters}
+          renderItem={({ item, index }) => (
+            <FilterItem
+              curr={index}
+              name={item.name}
+              noOfFilters={filters.length}
+              options={item.options}
+              key={item.id}
+            />
+          )}
+          style={styles.filters}
+        />
       )}
     </View>
   );

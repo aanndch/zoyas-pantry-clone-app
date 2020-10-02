@@ -54,7 +54,7 @@ const CustomDrawer = ({ navigation }: customDrawerProps) => (
     <TouchableOpacity
       activeOpacity={0.7}
       style={styles.drawerItem}
-      onPress={() => navigation.navigate("Home")}
+      onPress={() => navigation.navigate("Favorites")}
     >
       <Text style={styles.drawerItemText}>Favorites</Text>
       <AntDesign name="hearto" size={25} style={styles.drawerItemIcon} />

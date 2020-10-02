@@ -1,4 +1,4 @@
-import { StyleSheet} from 'react-native';
+import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
   button: {
@@ -12,6 +12,7 @@ const styles = StyleSheet.create({
     marginTop: 3,
     fontFamily: "Poppins_400Regular",
     fontSize: 12,
+    color: "#402661",
   },
   buttonShadow: {
     backgroundColor: "#17aba6",

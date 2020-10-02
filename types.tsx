@@ -14,11 +14,17 @@ export type HomeStackParamList = {
   ProductScreen: undefined;
 };
 
+export type WishlistStackParamList = {
+  Favorites: undefined;
+  ProductScreen: undefined;
+};
+
 export type ProductType = {
   id: number;
   name: string;
   imageUrl: string;
   price: number;
+  description: string;
   category: string;
   inWishlist: boolean;
   inStock: boolean;

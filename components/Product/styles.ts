@@ -10,7 +10,7 @@ const styles = StyleSheet.create({
   },
   favoriteIcon: {
     position: "absolute",
-    right: 15,
+    right: 10,
     top: 15,
   },
   image: {
