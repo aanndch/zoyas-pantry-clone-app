@@ -22,7 +22,15 @@ const styles = StyleSheet.create({
   name: {
     fontFamily: "PTSans_700Bold",
     fontSize: 22,
-    marginVertical: 10,
+    marginTop: 10,
+    marginBottom: 3,
+  },
+  category: {
+    fontFamily: "PTSans_400Regular",
+    color: "#151515",
+    fontSize: 12,
+    letterSpacing: 0.3,
+    marginBottom: 15,
   },
   description: {
     fontFamily: "PTSans_400Regular",

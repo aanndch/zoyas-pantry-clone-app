@@ -24,6 +24,7 @@ const ProductScreen = ({ route }: ProductScreenProps) => {
       <Image source={{ uri: product.imageUrl }} style={styles.image} />
       <View style={styles.details}>
         <Text style={styles.name}>{product.name}</Text>
+        <Text style={styles.category}>{product.category}</Text>
         <Text style={styles.description}>{product.description}</Text>
         <View style={styles.footer}>
           <Text style={styles.price}>${product.price}</Text>
