@@ -5,7 +5,7 @@ const styles = StyleSheet.create({
     flex: 1,
     position: "relative",
     paddingHorizontal: 10,
-    paddingBottom: 10,
+    paddingBottom: 15,
     backgroundColor: "#ffffff",
   },
   favoriteIcon: {

@@ -5,6 +5,7 @@ import { AntDesign } from "@expo/vector-icons";
 import { ProductType } from "../../types";
 import Button from "../Button";
 import styles from "./styles";
+import OutOfStockButton from "../OutOfStockButton";
 
 interface ProductProps {
   product: ProductType;
@@ -26,13 +27,17 @@ const Product = ({ product }: ProductProps) => {
       </View>
       <View style={styles.footer}>
         <Text style={styles.price}>${product.price}</Text>
-        <Button
-          text="Add to Bag"
-          width={100}
-          onPressFn={() => {
-            console.log("Added to bag!");
-          }}
-        />
+        {product.inStock ? (
+          <Button
+            text="Add to Bag"
+            width={100}
+            onPressFn={() => {
+              console.log("Added to bag!");
+            }}
+          />
+        ) : (
+          <OutOfStockButton />
+        )}
       </View>
     </View>
   );
