@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
   image: {
     height: 350,
     width: "100%",
-    resizeMode: "cover",
+    resizeMode: "contain",
   },
   details: {},
   categoryName: {

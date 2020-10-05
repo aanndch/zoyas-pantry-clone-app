@@ -8,15 +8,15 @@ const styles = StyleSheet.create({
     position: "relative",
   },
   image: {
-    marginTop: 10,
-    resizeMode: "cover",
+    marginTop: 5,
+    resizeMode: "contain",
     width: "100%",
     height: 350,
   },
   favoriteIcon: {
     position: "absolute",
     zIndex: 1,
-    top: 20,
+    top: 30,
     left: 10,
   },
   name: {
