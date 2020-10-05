@@ -2,8 +2,8 @@ import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
   quantitySelector: {
-    width: 100,
-    height: 30,
+    width: 110,
+    height: 35,
     flexDirection: "row",
     justifyContent: "space-around",
     alignItems: "center",
@@ -19,6 +19,7 @@ const styles = StyleSheet.create({
     color: "#252525",
     fontSize: 17,
     fontFamily: "PTSans_700Bold",
+    textAlign: "center",
   },
 });
 

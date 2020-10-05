@@ -10,9 +10,10 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     marginTop: 3,
-    fontFamily: "Poppins_400Regular",
-    fontSize: 12,
+    fontFamily: "PTSans_700Bold",
+    fontSize: 13,
     color: "#402661",
+    letterSpacing: 0.3,
   },
   buttonShadow: {
     backgroundColor: "#17aba6",

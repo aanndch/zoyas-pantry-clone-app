@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, Text, TouchableOpacity } from "react-native";
+import { View, Text, TouchableOpacity, TextInput } from "react-native";
 
 import { Entypo } from "@expo/vector-icons";
 
@@ -21,7 +21,7 @@ const QuantitySelector = ({ styles: customStyles }: QuantitySelectorProps) => {
       >
         <Entypo name="minus" size={20} color="#17aba6" />
       </TouchableOpacity>
-      <Text style={styles.quantity}>{quantity}</Text>
+      <TextInput style={styles.quantity}>{quantity}</TextInput>
       <TouchableOpacity
         onPress={() => setQuantity(quantity + 1)}
         activeOpacity={0.6}

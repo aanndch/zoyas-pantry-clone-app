@@ -1,5 +1,5 @@
 Arguments: 
-  C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js add expo-font@~8.3.0 @expo-google-fonts/PTsans
+  C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js add react-native-web-view
 
 PATH: 
   C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\nodejs\;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files (x86)\Yarn\bin\;C:\Program Files\Git\cmd;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Users\anand\AppData\Local\Programs\Python\Python38-32\Scripts\;C:\Users\anand\AppData\Local\Programs\Python\Python38-32\;C:\Users\anand\AppData\Local\Microsoft\WindowsApps;C:\Users\anand\AppData\Local\GitHubDesktop\bin;C:\Users\anand\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\anand\AppData\Roaming\npm;C:\Program Files\heroku\bin;C:\flutter\bin;C:\Watchman\bin;C:\Users\anand\AppData\Local\Yarn\bin;C:\Program Files (x86)\Yarn\bin;C:\Program Files\CMake\bin;%USERPROFILE%\AppData\Local\Microsoft\WindowsApps;
@@ -14,7 +14,7 @@ Platform:
   win32 x64
 
 Trace: 
-  Error: https://registry.yarnpkg.com/@expo-google-fonts%2fPTsans: Not found
+  Error: https://registry.yarnpkg.com/react-native-web-view: Not found
       at Request.params.callback [as _callback] (C:\Program Files (x86)\Yarn\lib\cli.js:66035:18)
       at Request.self.callback (C:\Program Files (x86)\Yarn\lib\cli.js:140564:22)
       at Request.emit (events.js:210:5)
@@ -37,15 +37,21 @@ npm manifest:
       "eject": "expo eject"
     },
     "dependencies": {
+      "@expo-google-fonts/poppins": "^0.1.0",
+      "@expo-google-fonts/pt-sans": "^0.1.0",
+      "@react-native-community/masked-view": "^0.1.10",
       "@react-navigation/drawer": "^5.9.2",
       "@react-navigation/native": "^5.7.5",
+      "@react-navigation/stack": "^5.9.2",
       "expo": "~39.0.2",
+      "expo-font": "~8.3.0",
       "expo-status-bar": "~1.0.2",
       "react": "16.13.1",
       "react-dom": "16.13.1",
       "react-native": "https://github.com/expo/react-native/archive/sdk-39.0.2.tar.gz",
       "react-native-gesture-handler": "^1.8.0",
       "react-native-reanimated": "^1.13.1",
+      "react-native-remote-svg": "^2.0.6",
       "react-native-safe-area-context": "3.1.4",
       "react-native-screens": "^2.11.0",
       "react-native-web": "~0.13.12"
@@ -1063,6 +1069,16 @@ Lockfile:
     dependencies:
       "@types/hammerjs" "^2.0.36"
   
+  "@expo-google-fonts/poppins@^0.1.0":
+    version "0.1.0"
+    resolved "https://registry.yarnpkg.com/@expo-google-fonts/poppins/-/poppins-0.1.0.tgz#aae4df9e80d68ec9dc6764e57dc931f1f64016cd"
+    integrity sha512-iC8ii7hYyK22N3ivvLyIspLQ0D4dn1mB+llhYnUCr/h/QfwUWyEosq1uWiwNC47yCedsiPiZ99vJSfpYRjBDrA==
+  
+  "@expo-google-fonts/pt-sans@^0.1.0":
+    version "0.1.0"
+    resolved "https://registry.yarnpkg.com/@expo-google-fonts/pt-sans/-/pt-sans-0.1.0.tgz#2c1ea43b521a3997c9a54a3b284744f8038714d7"
+    integrity sha512-img46y5m9K9jA1j/CoNblMtBOuNdl1m0LyraJKa+o0Re1kjp2qgNto9mwYruBV0g8fTLjndUaHl1Hp/UwtFEzA==
+  
   "@expo/configure-splash-screen@0.2.0":
     version "0.2.0"
     resolved "https://registry.yarnpkg.com/@expo/configure-splash-screen/-/configure-splash-screen-0.2.0.tgz#84f9f71363259f16fd0073636a198c750a3cdd7c"
@@ -1304,6 +1320,11 @@ Lockfile:
       sudo-prompt "^9.0.0"
       wcwidth "^1.0.1"
   
+  "@react-native-community/masked-view@^0.1.10":
+    version "0.1.10"
+    resolved "https://registry.yarnpkg.com/@react-native-community/masked-view/-/masked-view-0.1.10.tgz#5dda643e19e587793bc2034dd9bf7398ad43d401"
+    integrity sha512-rk4sWFsmtOw8oyx8SD3KSvawwaK7gRBSEIy2TAwURyGt+3TizssXP1r8nx3zY+R7v2vYYHXZ+k2/GULAT/bcaQ==
+  
   "@react-navigation/core@^5.12.4":
     version "5.12.4"
     resolved "https://registry.yarnpkg.com/@react-navigation/core/-/core-5.12.4.tgz#1bd0c81d098895c8ffe49f8624fae60c9abc5684"
@@ -1338,6 +1359,14 @@ Lockfile:
     integrity sha512-IwMmxeb5e6LboljhakmhtrHBXLYFrFDr2c1GjAG538e4MjT4QGi/ZYckAxCh/NqKI0knnzqKppPl2NsOMv/NoQ==
     dependencies:
       nanoid "^3.1.12"
+  
+  "@react-navigation/stack@^5.9.2":
+    version "5.9.2"
+    resolved "https://registry.yarnpkg.com/@react-navigation/stack/-/stack-5.9.2.tgz#68841c9ef032177d15664b14cff62e16698f89c7"
+    integrity sha512-imEvTuCNsIo3ZriN6eIreGaxypuuB9ZOqdUXfxJznzMCkb7lN4OR/YVztAJW3QQzhuD4vwly+7jDvt7SxyfSuw==
+    dependencies:
+      color "^3.1.2"
+      react-native-iphone-x-helper "^1.2.1"
   
   "@types/color-name@^1.1.1":
     version "1.1.1"
@@ -4683,6 +4712,11 @@ Lockfile:
     integrity sha512-3sF46jts9MbktgIasf0sTM8uhOYO5a5Q3YyQ4X1jjSE82n/fY2nW3XTFsLGfLEpK2ir4XSDhQWVgFHazaXZTww==
     dependencies:
       fbjs "^1.0.0"
+  
+  react-native-remote-svg@^2.0.6:
+    version "2.0.6"
+    resolved "https://registry.yarnpkg.com/react-native-remote-svg/-/react-native-remote-svg-2.0.6.tgz#5f8bc7cefc18f4d37cf02f8158d6b2a9f534891d"
+    integrity sha512-tQbDL+gtfGgG9Evz5TOn5Odmrn/EYsmsLqVZ0Do0VMJevfLBuQRioLiwRsI/BCgOHu1oQLZIIE5p7V/lN9jLrw==
   
   react-native-safe-area-context@3.1.4:
     version "3.1.4"

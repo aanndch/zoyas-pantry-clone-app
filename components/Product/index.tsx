@@ -49,7 +49,7 @@ const Product = ({
         )}
         <View style={styles.details}>
           <Text style={styles.categoryName}>{product.category}</Text>
-          <Text style={styles.name}>{product.name}</Text>
+          <Text style={styles.name}>{product.title}</Text>
         </View>
       </TouchableOpacity>
       <View style={styles.footer}>

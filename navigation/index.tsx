@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Image, StyleSheet } from "react-native";
+import { StyleSheet } from "react-native";
 import {
   createDrawerNavigator,
   DrawerNavigationProp,
@@ -7,6 +7,7 @@ import {
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { Feather } from "@expo/vector-icons";
+import Image from "react-native-remote-svg";
 
 import HomeScreen from "../screens/HomeScreen";
 // import NewInScreen from "../screens/NewInScreen";
@@ -80,7 +81,7 @@ const HomeStack = ({ navigation }: HomeStackProps) => (
       headerTitle: () => (
         <Image
           source={{
-            uri: `https://i.imgur.com/3QIa4mP.jpg`,
+            uri: `https://zoyaspantry.com.au/wp-content/themes/zoyas-pantry/assets/images/Logo.svg`,
           }}
           style={styles.logo}
         />
@@ -118,7 +119,7 @@ const WishlistStack = ({ navigation }: WishlistStackProps) => (
       headerTitle: () => (
         <Image
           source={{
-            uri: `https://i.imgur.com/3QIa4mP.jpg`,
+            uri: `https://zoyaspantry.com.au/wp-content/themes/zoyas-pantry/assets/images/Logo.svg`,
           }}
           style={styles.logo}
         />
@@ -155,7 +156,7 @@ const CartStack = ({ navigation }: CartStackProps) => (
       headerTitle: () => (
         <Image
           source={{
-            uri: `https://i.imgur.com/3QIa4mP.jpg`,
+            uri: `https://zoyaspantry.com.au/wp-content/themes/zoyas-pantry/assets/images/Logo.svg`,
           }}
           style={styles.logo}
         />

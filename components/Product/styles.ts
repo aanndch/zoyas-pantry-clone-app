@@ -29,6 +29,7 @@ const styles = StyleSheet.create({
     fontSize: 15,
   },
   footer: {
+    marginTop: 7,
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",

@@ -26,11 +26,11 @@ export type CartStackParamList = {
 
 export type ProductType = {
   id: number;
-  name: string;
+  title: string;
   imageUrl: string;
   price: number;
   description: string;
   category: string;
-  inWishlist: boolean;
+  tags: string[];
   inStock: boolean;
 };

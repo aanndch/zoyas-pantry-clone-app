@@ -1,5 +1,6 @@
 import React from "react";
-import { Text, View, Image } from "react-native";
+import { Text, View, ScrollView } from "react-native";
+import Image from "react-native-remote-svg";
 import { AntDesign } from "@expo/vector-icons";
 
 import styles from "./styles";
@@ -13,8 +14,24 @@ interface ProductScreenProps {
 const ProductScreen = ({ route }: ProductScreenProps) => {
   const { product } = route.params;
 
+  const selectImageUrl = (category: string) => {
+    let imageUrl = "";
+
+    if (category === "Organic")
+      imageUrl =
+        "https://zoyaspantry.com.au/wp-content/uploads/2020/05/Zoyas-Pantry_icons-40.svg";
+    else if (category === "Vegan")
+      imageUrl =
+        "https://zoyaspantry.com.au/wp-content/uploads/2020/05/vegan-2.svg";
+    else
+      imageUrl =
+        "https://zoyaspantry.com.au/wp-content/uploads/2020/05/kosher.svg";
+
+    return imageUrl;
+  };
+
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container}>
       <AntDesign
         name={product.inWishlist ? "heart" : "hearto"}
         size={18}
@@ -22,22 +39,47 @@ const ProductScreen = ({ route }: ProductScreenProps) => {
         style={styles.favoriteIcon}
       />
       <Image source={{ uri: product.imageUrl }} style={styles.image} />
-      <View style={styles.details}>
-        <Text style={styles.name}>{product.name}</Text>
+      <View>
+        <Text style={styles.name}>{product.title}</Text>
         <Text style={styles.category}>{product.category}</Text>
         <Text style={styles.description}>{product.description}</Text>
-        <View style={styles.footer}>
-          <Text style={styles.price}>${product.price}</Text>
+        <View style={styles.metaContainer}>
+          <View style={styles.meta}>
+            <Text style={styles.metaHeading}>SKU:</Text>
+            <Text style={styles.metaText}>{product.meta.sku}</Text>
+          </View>
+          <View style={styles.meta}>
+            <Text style={styles.metaHeading}>Brand:</Text>
+            <Text style={styles.metaText}>{product.meta.brand}</Text>
+          </View>
+        </View>
+        <View style={styles.details}>
+          <View style={styles.tags}>
+            {product.tags.map((tag: string) => (
+              <View key={tag} style={styles.tagInfo}>
+                <Image
+                  source={{
+                    uri: selectImageUrl(tag),
+                  }}
+                  style={styles.tagImage}
+                />
+                <Text style={styles.tagName}>{tag}</Text>
+              </View>
+            ))}
+          </View>
           <QuantitySelector />
         </View>
-        <Button
-          width={150}
-          text="Add to Bag"
-          onPressFn={() => {}}
-          styles={{ alignSelf: "flex-end" }}
-        />
+        <View style={styles.footer}>
+          <Text style={styles.price}>${product.price}</Text>
+          <Button
+            width={150}
+            text="Add to Bag"
+            onPressFn={() => {}}
+            styles={{ alignSelf: "flex-end" }}
+          />
+        </View>
       </View>
-    </View>
+    </ScrollView>
   );
 };
 
