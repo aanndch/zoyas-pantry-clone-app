@@ -118,38 +118,43 @@ export const products = [
   },
 ];
 
-export const filters = [
-  {
-    id: 1,
-    name: "Pantry",
-    options: ["Artisan Oils", "French Truffles", "Gourmet Condiments"],
-  },
-  {
-    id: 2,
-    name: "Sale",
-    options: ["Discounts", "Best sellers"],
-  },
-  {
-    id: 3,
-    name: "Brand",
-    options: ["Chiefs choice", "Nortindal", "Plantin"],
-  },
-  {
-    id: 4,
-    name: "Price",
-    options: ["Under 10$", "10$ - 50$", "$50 - 100$", "Above 100$"],
-  },
-  {
-    id: 5,
-    name: "Religious Based",
-    options: ["Kosher"],
-  },
-  {
-    id: 6,
-    name: "Dietary",
-    options: ["Vegan", "Organic"],
-  },
-];
+export const filters = {
+  Pantry: [
+    "Artisan Oils",
+    "Extracts & Flavours",
+    "French Truffles",
+    "Gourmet Condiments",
+    "Gourmet Essentials",
+    "Mediterranean Essentials",
+    "Organic Cacao & Chocolates",
+    "Organic Coconut Product",
+    "Organic Juices",
+    "Organic Noodles",
+    "Pickles & Preserves",
+    "Ready to Cook Mixes",
+    "Rices",
+    "Organic Beans & Lentils",
+    "Breakfast Favourites",
+    "Salt & Spices",
+    "French Traditional Sauces",
+    "Seeds & Grains",
+    "Sugars, Sweetners & Syrups",
+    "Organic Canned Vegetables & Tomatoes",
+  ],
+  Sale: ["Discounts", "Best sellers"],
+  Brand: [
+    "Chiefs choice",
+    "La Tourangelle",
+    "Nortindal",
+    "Plantin",
+    "Sicam",
+    "Talatta",
+    "Three Olives",
+  ],
+  Price: ["Under 10$", "10$ - 50$", "50$ - 100$", "Above $100"],
+  "Religious based": ["Kosher"],
+  Dietary: ["Vegan", "Organic"],
+};
 
 export const cart = [
   {

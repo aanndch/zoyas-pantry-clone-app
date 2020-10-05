@@ -25,7 +25,8 @@ const ProductsScreen = ({ navigation }: ProductsScreenProps) => (
           styles={{ marginVertical: 10 }}
         />
       )}
-      keyExtractor={(item) => item.id}
+      // TODO: Add id generated from DB
+      keyExtractor={(item) => item.title}
       ListHeaderComponent={() => <View style={{ marginVertical: 30 }} />}
       ListFooterComponent={() => <View style={{ marginVertical: 5 }} />}
       showsVerticalScrollIndicator={false}

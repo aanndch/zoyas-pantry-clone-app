@@ -3,13 +3,67 @@ import { View, Text, TouchableOpacity, FlatList } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
 
 import FilterItem from "./FilterItem";
-import styles from "./styles";
 import { filters } from "../../data";
+import styles from "./styles";
 
 interface FilterProps {}
 
 const Filter = (props: FilterProps) => {
   const [isOpen, setIsOpen] = useState(false);
+  let [selectedFilters, setSelectedFilters] = useState<string[]>([]);
+
+  const addFilter = (oldFilter: string, newFilter: string) => {
+    let updatedFilters = [...selectedFilters];
+
+    if (oldFilter === newFilter) {
+      if (updatedFilters.includes(newFilter)) {
+        updatedFilters = updatedFilters.filter((f) => f !== newFilter);
+      } else {
+        updatedFilters = [...updatedFilters, newFilter];
+      }
+
+      setSelectedFilters(updatedFilters);
+      return;
+    }
+
+    if (selectedFilters.includes(newFilter))
+      updatedFilters = updatedFilters.filter((f) => f !== newFilter);
+    else updatedFilters = [...updatedFilters, newFilter];
+
+    if (updatedFilters.includes(oldFilter))
+      updatedFilters = updatedFilters.filter((f) => f !== oldFilter);
+
+    setSelectedFilters(updatedFilters);
+  };
+
+  const removeFilter = (filter: string) =>
+    setSelectedFilters(selectedFilters.filter((f) => f !== filter));
+
+  const clearFilters = () => setSelectedFilters([]);
+
+  const FilterTags = (
+    <View style={styles.filterFooter}>
+      <View style={styles.filterTags}>
+        {selectedFilters.map((filter) => (
+          <TouchableOpacity
+            style={styles.filterTag}
+            onPress={() => removeFilter(filter)}
+            key={filter}
+          >
+            <Text style={styles.filterTagText}>{filter}</Text>
+            <AntDesign name="close" size={15} style={styles.filterTagIcon} />
+          </TouchableOpacity>
+        ))}
+      </View>
+      <TouchableOpacity
+        onPress={() => clearFilters()}
+        activeOpacity={0.7}
+        style={styles.clearAllButton}
+      >
+        <Text style={styles.clearAll}>Clear all</Text>
+      </TouchableOpacity>
+    </View>
+  );
 
   return (
     <View>
@@ -20,8 +74,8 @@ const Filter = (props: FilterProps) => {
       >
         {isOpen ? (
           <>
-            <AntDesign name="close" size={20} color="#ffffff" />
-            <Text style={styles.headingText}>Close</Text>
+            <AntDesign name="check" size={20} color="#ffffff" />
+            <Text style={styles.headingText}>Done</Text>
           </>
         ) : (
           <>
@@ -30,22 +84,22 @@ const Filter = (props: FilterProps) => {
           </>
         )}
       </TouchableOpacity>
-      {isOpen && (
-        <FlatList
-          data={filters}
-          renderItem={({ item, index }) => (
-            <FilterItem
-              curr={index}
-              name={item.name}
-              noOfFilters={filters.length}
-              options={item.options}
-              key={item.id}
-            />
-          )}
-          style={styles.filters}
-          showsVerticalScrollIndicator={false}
-        />
-      )}
+      <FlatList
+        data={Object.keys(filters)}
+        renderItem={({ item, index }) => (
+          <FilterItem
+            curr={index}
+            name={item}
+            noOfFilters={Object.keys(filters).length}
+            options={filters[item]}
+            addFilter={addFilter}
+            key={item}
+          />
+        )}
+        style={isOpen ? styles.filters : styles.hideFilters}
+        showsVerticalScrollIndicator={false}
+        ListFooterComponent={selectedFilters.length > 0 ? FilterTags : <View />}
+      />
     </View>
   );
 };

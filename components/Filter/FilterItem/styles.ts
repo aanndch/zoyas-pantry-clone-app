@@ -17,7 +17,7 @@ const styles = StyleSheet.create({
     letterSpacing: 0.3,
   },
   option: {
-    paddingTop: 10,
+    paddingTop: 15,
   },
   optionText: {
     fontFamily: "PTSans_400Regular",

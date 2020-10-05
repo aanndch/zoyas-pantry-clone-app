@@ -5,7 +5,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#17aba6",
     position: "absolute",
-    top: 0,
+    top: 10,
     left: 0,
     zIndex: 1,
     height: 40,
@@ -14,6 +14,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "center",
     alignItems: "center",
+    elevation: 20,
   },
   headingText: {
     fontSize: 15,
@@ -22,14 +23,13 @@ const styles = StyleSheet.create({
     marginLeft: 13,
   },
   filters: {
-    marginTop: 50,
+    marginTop: 65,
     position: "absolute",
     minHeight: 300,
     zIndex: 1,
-    maxHeight: Dimensions.get("window").height * 0.75,
+    maxHeight: Dimensions.get("window").height * 0.74,
     width: "100%",
     paddingHorizontal: 25,
-    paddingVertical: 10,
     backgroundColor: "#ffffff",
     borderRadius: 15,
     shadowColor: "#8d8d8d26",
@@ -37,6 +37,45 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.8,
     shadowRadius: 2,
     elevation: 25,
+  },
+  hideFilters: {
+    display: "none",
+  },
+  filterFooter: {
+    paddingBottom: 15,
+  },
+  filterTags: {
+    flexDirection: "row",
+    alignItems: "center",
+    flexWrap: "wrap",
+  },
+  filterTag: {
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+    marginRight: 15,
+    marginBottom: 10,
+    paddingVertical: 5,
+    paddingHorizontal: 10,
+    borderColor: "#17aba6",
+    borderWidth: 0.5,
+    borderRadius: 50,
+  },
+  filterTagText: {
+    fontFamily: "PTSans_400Regular",
+    marginRight: 7,
+  },
+  filterTagIcon: {
+    color: "#17aba6",
+  },
+  clearAllButton: {
+    alignSelf: "flex-start",
+  },
+  clearAll: {
+    marginTop: 10,
+    fontFamily: "PTSans_700Bold",
+    textDecorationLine: "underline",
+    fontSize: 15,
   },
 });
 
