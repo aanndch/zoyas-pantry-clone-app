@@ -1,4 +1,5 @@
 import { StyleSheet } from "react-native";
+import COLORS from "../../../colors";
 
 const styles = StyleSheet.create({
   container: {
@@ -22,6 +23,12 @@ const styles = StyleSheet.create({
   optionText: {
     fontFamily: "PTSans_400Regular",
     fontSize: 14,
+    color: COLORS.black,
+  },
+  selectedOptionText: {
+    fontFamily: "PTSans_700Bold",
+    fontSize: 14,
+    color: COLORS.green,
   },
 });
 

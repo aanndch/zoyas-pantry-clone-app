@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Text, View, ScrollView } from "react-native";
 import Image from "react-native-remote-svg";
 import { AntDesign } from "@expo/vector-icons";
@@ -13,6 +13,8 @@ interface ProductScreenProps {
 
 const ProductScreen = ({ route }: ProductScreenProps) => {
   const { product } = route.params;
+
+  const [quantity, setQuantity] = useState(1);
 
   const selectImageUrl = (category: string) => {
     let imageUrl = "";
@@ -40,9 +42,11 @@ const ProductScreen = ({ route }: ProductScreenProps) => {
       />
       <Image source={{ uri: product.imageUrl }} style={styles.image} />
       <View>
-        <Text style={styles.name}>{product.title}</Text>
         <Text style={styles.category}>{product.category}</Text>
-        <Text style={styles.description}>{product.description}</Text>
+        <Text style={styles.name}>{product.title}</Text>
+        <Text style={styles.weight}>{product.weight}</Text>
+
+        <Text style={styles.description}>{product.shortDescription}</Text>
         <View style={styles.metaContainer}>
           <View style={styles.meta}>
             <Text style={styles.metaHeading}>SKU:</Text>
@@ -67,7 +71,7 @@ const ProductScreen = ({ route }: ProductScreenProps) => {
               </View>
             ))}
           </View>
-          <QuantitySelector />
+          <QuantitySelector quantity={quantity} setQuantity={setQuantity} />
         </View>
         <View style={styles.footer}>
           <Text style={styles.price}>${product.price}</Text>

@@ -1,4 +1,5 @@
 import { StyleSheet } from "react-native";
+import COLORS from "../../colors";
 
 const styles = StyleSheet.create({
   container: {
@@ -20,7 +21,7 @@ const styles = StyleSheet.create({
     height: 50,
   },
   drawerItemTextTeal: {
-    color: "#17aba6",
+    color: COLORS.green,
     fontFamily: "PTSans_700Bold",
     fontSize: 16,
   },

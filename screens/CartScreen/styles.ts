@@ -27,7 +27,6 @@ const styles = StyleSheet.create({
   },
   cartContainer: {
     flex: 1,
-    paddingHorizontal: 20,
     backgroundColor: "#fafafa",
   },
   cartHeading: {
@@ -36,9 +35,11 @@ const styles = StyleSheet.create({
     marginBottom: 30,
     letterSpacing: 0.3,
     paddingTop: 20,
+    marginHorizontal: 20,
   },
   totalContainer: {
-    marginVertical: 30,
+    marginVertical: 20,
+    marginHorizontal: 20,
   },
   totalTextContainer: {
     flexDirection: "row",
@@ -55,6 +56,9 @@ const styles = StyleSheet.create({
     fontFamily: "PTSans_700Bold",
     fontSize: 14,
     letterSpacing: 0.3,
+  },
+  checkoutButton: {
+    marginHorizontal: 20,
   },
 });
 

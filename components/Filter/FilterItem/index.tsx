@@ -3,13 +3,13 @@ import { View, Text, TouchableOpacity } from "react-native";
 import { Entypo } from "@expo/vector-icons";
 
 import styles from "./styles";
-import { add } from "react-native-reanimated";
 
 interface FilterProps {
-  name: string;
-  options: string[];
   curr: number;
+  name: string;
   noOfFilters: number;
+  options: string[];
+  selectedFilters: string[];
   addFilter: (oldFilter: string, newFilter: string) => void;
 }
 
@@ -19,6 +19,7 @@ const FilterItem = ({
   curr,
   noOfFilters,
   addFilter,
+  selectedFilters,
 }: FilterProps) => {
   const isLast = curr === noOfFilters - 1 ? true : false;
 
@@ -49,7 +50,15 @@ const FilterItem = ({
             style={styles.option}
             activeOpacity={0.7}
           >
-            <Text style={styles.optionText}>{option}</Text>
+            <Text
+              style={
+                selectedFilters.includes(option)
+                  ? styles.selectedOptionText
+                  : styles.optionText
+              }
+            >
+              {option}
+            </Text>
           </TouchableOpacity>
         ))}
     </View>

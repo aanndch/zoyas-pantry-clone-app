@@ -41,6 +41,7 @@ const Product = ({
           />
         ) : (
           <AntDesign
+            // TODO: Change wishlist logic
             name={product.inWishlist ? "heart" : "hearto"}
             size={25}
             color="#402661"
@@ -49,7 +50,9 @@ const Product = ({
         )}
         <View style={styles.details}>
           <Text style={styles.categoryName}>{product.category}</Text>
-          <Text style={styles.name}>{product.title}</Text>
+          <Text style={styles.name}>
+            {product.title} {product.weight}
+          </Text>
         </View>
       </TouchableOpacity>
       <View style={styles.footer}>

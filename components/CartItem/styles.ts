@@ -1,34 +1,60 @@
 import { StyleSheet } from "react-native";
+import COLORS from "../../colors";
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingVertical: 20,
-    borderTopWidth: 0.5,
-    borderTopColor: "#b5b5b5",
+    flexDirection: "column",
+    position: "relative",
+    paddingVertical: 15,
+    borderRadius: 15,
+    elevation: 2,
+    marginHorizontal: 20,
+    marginBottom: 15,
+    backgroundColor: "#fafafa",
+    padding: 15,
+  },
+  favoriteIcon: {
+    position: "absolute",
+    top: 20,
+    left: 20,
+    zIndex: 1,
+  },
+  deleteIcon: {
+    position: "absolute",
+    top: 15,
+    right: 15,
+    zIndex: 1,
+  },
+  content: {
+    flexDirection: "row",
   },
   details: {
-    flexDirection: "row",
-    marginBottom: 20,
+    flex: 1,
+    marginLeft: 15,
+    justifyContent: "space-between",
   },
   image: {
-    height: 80,
+    height: 100,
     width: 80,
+    borderRadius: 5,
     resizeMode: "cover",
   },
   heading: {
-    marginLeft: 20,
     justifyContent: "center",
+    flexShrink: 1,
+    marginBottom: 20,
   },
-  category: {
+  weight: {
     fontFamily: "PTSans_400Regular",
-    color: "#b5b5b5",
-    fontSize: 12,
+    fontSize: 11,
+    color: "black",
     letterSpacing: 0.3,
   },
   name: {
     fontFamily: "PTSans_700Bold",
-    color: "#252525",
+    marginRight: 20,
+    color: COLORS.black,
     fontSize: 15,
     letterSpacing: 0.3,
   },
@@ -36,22 +62,12 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-    marginBottom: 20,
   },
   price: {
     fontFamily: "PTSans_400Regular",
-    color: "#252525",
+    color: COLORS.black,
     fontSize: 15,
     letterSpacing: 0.3,
-  },
-  actions: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-  },
-  actionText: {
-    fontSize: 13,
-    textDecorationLine: "underline",
-    fontFamily: "PTSans_400Regular",
   },
 });
 

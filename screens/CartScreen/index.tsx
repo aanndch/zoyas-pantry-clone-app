@@ -2,7 +2,6 @@ import React from "react";
 import { View, Text, FlatList } from "react-native";
 
 import { cart } from "../../data";
-
 import EmptyScreen from "../EmptyScreen";
 import CartItem from "../../components/CartItem";
 import Button from "../../components/Button";
@@ -15,10 +14,9 @@ const CartScreen = () => {
     <View style={styles.cartContainer}>
       <FlatList
         data={cart}
-        renderItem={({ item, index }) => (
-          <CartItem item={item} curr={index} noOfItemsInCart={cart.length} />
-        )}
-        keyExtractor={(item) => item.id}
+        renderItem={({ item }) => <CartItem item={item} />}
+        // TODO: Change key to id after DB creation
+        keyExtractor={(item) => item.title}
         ListHeaderComponent={() => (
           <Text style={styles.cartHeading}>My Bag</Text>
         )}
@@ -39,12 +37,14 @@ const CartScreen = () => {
                 <Text style={styles.totalTextBold}>${subtotal}</Text>
               </View>
             </View>
-            <Button
-              text="Proceed to checkout"
-              width={"100%"}
-              onPressFn={() => {}}
-              styles={{ marginBottom: 30 }}
-            />
+            <View style={styles.checkoutButton}>
+              <Button
+                text="Proceed to checkout"
+                width="100%"
+                onPressFn={() => {}}
+                styles={{ marginBottom: 30 }}
+              />
+            </View>
           </>
         )}
       />

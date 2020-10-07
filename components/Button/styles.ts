@@ -1,4 +1,5 @@
 import { StyleSheet } from "react-native";
+import COLORS from "../../colors";
 
 const styles = StyleSheet.create({
   button: {
@@ -16,7 +17,7 @@ const styles = StyleSheet.create({
     letterSpacing: 0.3,
   },
   buttonShadow: {
-    backgroundColor: "#17aba6",
+    backgroundColor: COLORS.green,
     height: 30,
     marginTop: -25,
     borderRadius: 50,

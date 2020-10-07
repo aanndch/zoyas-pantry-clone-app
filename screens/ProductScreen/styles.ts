@@ -1,4 +1,5 @@
 import { StyleSheet } from "react-native";
+import COLORS from "../../colors";
 
 const styles = StyleSheet.create({
   container: {
@@ -22,15 +23,19 @@ const styles = StyleSheet.create({
   name: {
     fontFamily: "PTSans_700Bold",
     fontSize: 22,
-    marginTop: 10,
-    marginBottom: 3,
+    marginRight: 10,
+    letterSpacing: 0.3,
+  },
+  weight: {
+    fontSize: 12,
+    marginBottom: 15,
+    letterSpacing: 0.3,
   },
   category: {
     fontFamily: "PTSans_400Regular",
     color: "#151515",
-    fontSize: 12,
+    fontSize: 13,
     letterSpacing: 0.3,
-    marginBottom: 15,
   },
   description: {
     fontFamily: "PTSans_400Regular",

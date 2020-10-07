@@ -25,12 +25,17 @@ export type CartStackParamList = {
 };
 
 export type ProductType = {
-  id: number;
+  // id: number;
   title: string;
+  weight: string;
   imageUrl: string;
   price: number;
-  description: string;
+  shortDescription: string;
   category: string;
   tags: string[];
+  meta: {
+    sku: string;
+    brand: string;
+  };
   inStock: boolean;
 };

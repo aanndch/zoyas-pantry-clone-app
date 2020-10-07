@@ -1,9 +1,10 @@
 import { Dimensions, StyleSheet } from "react-native";
+import COLORS from "../../colors";
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#17aba6",
+    backgroundColor: COLORS.green,
     position: "absolute",
     top: 10,
     left: 0,
@@ -57,7 +58,7 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     paddingVertical: 5,
     paddingHorizontal: 10,
-    borderColor: "#17aba6",
+    borderColor: COLORS.green,
     borderWidth: 0.5,
     borderRadius: 50,
   },
@@ -66,14 +67,14 @@ const styles = StyleSheet.create({
     marginRight: 7,
   },
   filterTagIcon: {
-    color: "#17aba6",
+    color: COLORS.green,
   },
   clearAllButton: {
     alignSelf: "flex-start",
   },
   clearAll: {
     marginTop: 10,
-    fontFamily: "PTSans_700Bold",
+    fontFamily: "PTSans_400Regular",
     textDecorationLine: "underline",
     fontSize: 15,
   },

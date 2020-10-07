@@ -17,21 +17,24 @@ const Filter = (props: FilterProps) => {
 
     if (oldFilter === newFilter) {
       if (updatedFilters.includes(newFilter)) {
-        updatedFilters = updatedFilters.filter((f) => f !== newFilter);
+        removeFilter(newFilter);
       } else {
         updatedFilters = [...updatedFilters, newFilter];
+        setSelectedFilters(updatedFilters);
       }
 
-      setSelectedFilters(updatedFilters);
       return;
     }
 
-    if (selectedFilters.includes(newFilter))
+    if (selectedFilters.includes(newFilter)) {
       updatedFilters = updatedFilters.filter((f) => f !== newFilter);
-    else updatedFilters = [...updatedFilters, newFilter];
+    } else {
+      updatedFilters = [...updatedFilters, newFilter];
+    }
 
-    if (updatedFilters.includes(oldFilter))
+    if (updatedFilters.includes(oldFilter)) {
       updatedFilters = updatedFilters.filter((f) => f !== oldFilter);
+    }
 
     setSelectedFilters(updatedFilters);
   };
@@ -92,6 +95,7 @@ const Filter = (props: FilterProps) => {
             name={item}
             noOfFilters={Object.keys(filters).length}
             options={filters[item]}
+            selectedFilters={selectedFilters}
             addFilter={addFilter}
             key={item}
           />
