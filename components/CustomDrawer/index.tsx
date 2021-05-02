@@ -1,73 +1,49 @@
-import * as React from "react";
-import { Text, TouchableOpacity } from "react-native";
-import {
-  // DrawerContentScrollView,
-  DrawerNavigationProp,
-} from "@react-navigation/drawer";
-import { SafeAreaView } from "react-native-safe-area-context";
 import { AntDesign, Ionicons } from "@expo/vector-icons";
-
+import { DrawerNavigationProp } from "@react-navigation/drawer";
+import * as React from "react";
+import { SafeAreaView } from "react-native-safe-area-context";
 import { DrawerParamList } from "../../types";
+import DrawerItem from "./DrawerItem";
 import styles from "./styles";
 
-interface customDrawerProps {
+interface CustomDrawerProps {
   navigation: DrawerNavigationProp<DrawerParamList>;
 }
 
-const CustomDrawer = ({ navigation }: customDrawerProps) => (
+const CustomDrawer = ({ navigation }: CustomDrawerProps) => (
   <SafeAreaView style={styles.container}>
-    {/* <DrawerContentScrollView {...props}> */}
     <AntDesign
       name="close"
       size={30}
       style={styles.closeIcon}
       onPress={() => navigation.closeDrawer()}
     />
-    <TouchableOpacity
-      activeOpacity={0.7}
-      style={styles.drawerItem}
-      onPress={() => navigation.navigate("Home")}
-    >
-      <Text style={styles.drawerItemTextTeal}>New in</Text>
-    </TouchableOpacity>
-    <TouchableOpacity
-      activeOpacity={0.7}
-      style={styles.drawerItem}
-      onPress={() => navigation.navigate("Home")}
-    >
-      <Text style={styles.drawerItemTextTeal}>Best sellers</Text>
-    </TouchableOpacity>
-    <TouchableOpacity
-      activeOpacity={0.7}
-      style={styles.drawerItem}
-      onPress={() => navigation.navigate("Home")}
-    >
-      <Text style={styles.drawerItemText}>Pantry</Text>
-    </TouchableOpacity>
-    <TouchableOpacity
-      activeOpacity={0.7}
-      style={styles.drawerItem}
-      onPress={() => navigation.navigate("Home")}
-    >
-      <Text style={styles.drawerItemText}>Whole foods</Text>
-    </TouchableOpacity>
-    <TouchableOpacity
-      activeOpacity={0.7}
-      style={styles.drawerItem}
-      onPress={() => navigation.navigate("Favorites")}
-    >
-      <Text style={styles.drawerItemText}>Favorites</Text>
-      <AntDesign name="hearto" size={25} style={styles.drawerItemIcon} />
-    </TouchableOpacity>
-    <TouchableOpacity
-      activeOpacity={0.7}
-      style={styles.drawerItem}
-      onPress={() => navigation.navigate("Home")}
-    >
-      <Text style={styles.drawerItemText}>Login</Text>
-      <Ionicons name="md-happy" size={25} style={styles.drawerItemIcon} />
-    </TouchableOpacity>
-    {/* </DrawerContentScrollView> */}
+    <DrawerItem title="New in" navigation={navigation} destination="Home" />
+    <DrawerItem
+      title="Best sellers"
+      navigation={navigation}
+      destination="Home"
+    />
+    <DrawerItem title="Pantry" navigation={navigation} destination="Home" />
+    <DrawerItem
+      title="Whole foods"
+      navigation={navigation}
+      destination="Home"
+    />
+    <DrawerItem
+      title="Favorites"
+      navigation={navigation}
+      destination="Favorites"
+      icon={<AntDesign name="hearto" size={25} style={styles.drawerItemIcon} />}
+    />
+    <DrawerItem
+      title="Login"
+      navigation={navigation}
+      destination="Home"
+      icon={
+        <Ionicons name="md-happy" size={25} style={styles.drawerItemIcon} />
+      }
+    />
   </SafeAreaView>
 );
 

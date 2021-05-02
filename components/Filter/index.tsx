@@ -89,7 +89,7 @@ const Filter = (props: FilterProps) => {
       </TouchableOpacity>
       <FlatList
         data={Object.keys(filters)}
-        renderItem={({ item, index }) => (
+        renderItem={({ item, index }: { item: string; index: number }) => (
           <FilterItem
             curr={index}
             name={item}

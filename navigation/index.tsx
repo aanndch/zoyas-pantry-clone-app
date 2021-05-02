@@ -1,28 +1,28 @@
-import * as React from "react";
-import { StyleSheet } from "react-native";
+import { Feather } from "@expo/vector-icons";
 import {
   createDrawerNavigator,
   DrawerNavigationProp,
 } from "@react-navigation/drawer";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
-import { Feather } from "@expo/vector-icons";
+import * as React from "react";
+import { StyleSheet } from "react-native";
 import Image from "react-native-remote-svg";
 
-import HomeScreen from "../screens/HomeScreen";
-// import NewInScreen from "../screens/NewInScreen";
-import ProductsScreen from "../screens/ProductsScreen";
-import ProductScreen from "../screens/ProductScreen";
 import CustomDrawer from "../components/CustomDrawer";
 import TotalCartItems from "../components/TotalCartItems";
-import {
-  HomeStackParamList,
-  DrawerParamList,
-  WishlistStackParamList,
-  CartStackParamList,
-} from "../types";
-import WishlistScreen from "../screens/WishlistScreen";
 import CartScreen from "../screens/CartScreen";
+import HomeScreen from "../screens/HomeScreen";
+import ProductScreen from "../screens/ProductScreen";
+// import NewInScreen from "../screens/NewInScreen";
+import ProductsScreen from "../screens/ProductsScreen";
+import WishlistScreen from "../screens/WishlistScreen";
+import {
+  CartStackParamList,
+  DrawerParamList,
+  HomeStackParamList,
+  WishlistStackParamList,
+} from "../types";
 
 const Drawer = createDrawerNavigator<DrawerParamList>();
 

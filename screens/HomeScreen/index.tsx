@@ -21,7 +21,8 @@ const HomeScreen = ({ navigation }: HomeScreenProps) => (
       <View style={styles.textContainer}>
         <Text style={styles.headingText}>
           Your one stop to&nbsp;
-          <Text style={styles.textBold}>healthy & organic</Text> online store
+          <Text style={styles.textBold}>healthy &amp; organic</Text> online
+          store
         </Text>
         <Text style={styles.text}>
           From local products to fresh produce, our expert team members will

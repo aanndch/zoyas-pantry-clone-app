@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
   text: {
     fontFamily: "PTSans_400Regular",
     fontSize: 13,
-    color: '#402661'
+    color: "#402661",
   },
 });
 

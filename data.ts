@@ -204,6 +204,8 @@ export const filters = {
   Price: ["Under 10$", "10$ - 50$", "50$ - 100$", "Above $100"],
   "Religious based": ["Kosher"],
   Dietary: ["Vegan", "Organic"],
+} as {
+  [key: string]: string[]
 };
 
 export const cart = [
