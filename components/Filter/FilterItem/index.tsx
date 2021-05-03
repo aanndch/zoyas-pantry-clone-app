@@ -10,7 +10,7 @@ interface FilterProps {
   noOfFilters: number;
   options: string[];
   selectedFilters: string[];
-  addFilter: (oldFilter: string, newFilter: string) => void;
+  addFilter: (name: string, selectedFilter: string) => void;
 }
 
 const FilterItem = ({
@@ -24,13 +24,6 @@ const FilterItem = ({
   const isLast = curr === noOfFilters - 1 ? true : false;
 
   const [isOpen, setIsOpen] = useState(false);
-  const [currFilter, setCurrFilter] = useState("");
-
-  const replaceFilter = (newFilter: string) => {
-    addFilter(currFilter, newFilter);
-
-    setCurrFilter(newFilter);
-  };
 
   return (
     <View style={[styles.container, isLast && { borderBottomWidth: 0 }]}>
@@ -46,7 +39,7 @@ const FilterItem = ({
         options.map((option) => (
           <TouchableOpacity
             key={option}
-            onPress={() => replaceFilter(option)}
+            onPress={() => addFilter(name, option)}
             style={styles.option}
             activeOpacity={0.7}
           >

@@ -10,50 +10,42 @@ interface FilterProps {}
 
 const Filter = (props: FilterProps) => {
   const [isOpen, setIsOpen] = useState(false);
-  let [selectedFilters, setSelectedFilters] = useState<string[]>([]);
+  let [selectedFilters, setSelectedFilters] = useState<{
+    [key: string]: string;
+  }>({});
 
-  const addFilter = (oldFilter: string, newFilter: string) => {
-    let updatedFilters = [...selectedFilters];
+  const addFilter = (name: string, selectedFilter: string) => {
+    const updatedFilters = { ...selectedFilters };
 
-    if (oldFilter === newFilter) {
-      if (updatedFilters.includes(newFilter)) {
-        removeFilter(newFilter);
-      } else {
-        updatedFilters = [...updatedFilters, newFilter];
-        setSelectedFilters(updatedFilters);
-      }
-
-      return;
-    }
-
-    if (selectedFilters.includes(newFilter)) {
-      updatedFilters = updatedFilters.filter((f) => f !== newFilter);
+    if (updatedFilters[name] === selectedFilter) {
+      delete updatedFilters[name];
     } else {
-      updatedFilters = [...updatedFilters, newFilter];
-    }
-
-    if (updatedFilters.includes(oldFilter)) {
-      updatedFilters = updatedFilters.filter((f) => f !== oldFilter);
+      updatedFilters[name] = selectedFilter;
     }
 
     setSelectedFilters(updatedFilters);
   };
 
-  const removeFilter = (filter: string) =>
-    setSelectedFilters(selectedFilters.filter((f) => f !== filter));
+  const removeFilter = (filter: string) => {
+    const updatedFilters = { ...selectedFilters };
 
-  const clearFilters = () => setSelectedFilters([]);
+    delete updatedFilters[filter];
+
+    setSelectedFilters(updatedFilters);
+  };
+
+  const clearFilters = () => setSelectedFilters({});
 
   const FilterTags = (
     <View style={styles.filterFooter}>
       <View style={styles.filterTags}>
-        {selectedFilters.map((filter) => (
+        {Object.entries(selectedFilters).map(([name, selectedFilter]) => (
           <TouchableOpacity
             style={styles.filterTag}
-            onPress={() => removeFilter(filter)}
-            key={filter}
+            onPress={() => removeFilter(name)}
+            key={selectedFilter}
           >
-            <Text style={styles.filterTagText}>{filter}</Text>
+            <Text style={styles.filterTagText}>{selectedFilter}</Text>
             <AntDesign name="close" size={15} style={styles.filterTagIcon} />
           </TouchableOpacity>
         ))}
@@ -95,14 +87,16 @@ const Filter = (props: FilterProps) => {
             name={item}
             noOfFilters={Object.keys(filters).length}
             options={filters[item]}
-            selectedFilters={selectedFilters}
+            selectedFilters={Object.values(selectedFilters)}
             addFilter={addFilter}
             key={item}
           />
         )}
         style={isOpen ? styles.filters : styles.hideFilters}
         showsVerticalScrollIndicator={false}
-        ListFooterComponent={selectedFilters.length > 0 ? FilterTags : <View />}
+        ListFooterComponent={
+          Object.values(selectedFilters).length > 0 ? FilterTags : <View />
+        }
       />
     </View>
   );
