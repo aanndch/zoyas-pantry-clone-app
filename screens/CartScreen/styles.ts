@@ -1,9 +1,11 @@
 import { StyleSheet } from "react-native";
+import COLORS from "../../colors";
+import { PTSans } from "../../constants";
 
 const styles = StyleSheet.create({
   emptyCartContainer: {
     flex: 1,
-    backgroundColor: "#fafafa",
+    backgroundColor: COLORS.background,
     paddingHorizontal: 35,
     paddingTop: 80,
   },
@@ -15,23 +17,23 @@ const styles = StyleSheet.create({
   },
   heading: {
     fontSize: 25,
-    fontFamily: "PTSans_700Bold",
+    fontFamily: PTSans.Bold,
     marginBottom: 30,
     letterSpacing: 0.3,
   },
   subheading: {
     fontSize: 13,
-    fontFamily: "PTSans_400Regular",
+    fontFamily: PTSans.Regular,
     marginBottom: 10,
     letterSpacing: 0.3,
   },
   cartContainer: {
     flex: 1,
-    backgroundColor: "#fafafa",
+    backgroundColor: COLORS.background,
   },
   cartHeading: {
     fontSize: 16,
-    fontFamily: "PTSans_700Bold",
+    fontFamily: PTSans.Bold,
     marginBottom: 30,
     letterSpacing: 0.3,
     paddingTop: 20,
@@ -48,12 +50,12 @@ const styles = StyleSheet.create({
     marginBottom: 5,
   },
   totalText: {
-    fontFamily: "PTSans_400Regular",
+    fontFamily: PTSans.Regular,
     fontSize: 14,
     letterSpacing: 0.3,
   },
   totalTextBold: {
-    fontFamily: "PTSans_700Bold",
+    fontFamily: PTSans.Bold,
     fontSize: 14,
     letterSpacing: 0.3,
   },

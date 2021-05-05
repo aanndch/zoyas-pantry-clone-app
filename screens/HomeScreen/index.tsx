@@ -32,7 +32,11 @@ const HomeScreen = ({ navigation }: HomeScreenProps) => (
       <Button
         text="Explore the range"
         onPressFn={() => navigation.navigate("ProductsScreen")}
-        width={175}
+        buttonDimensions={{
+          button: {
+            width: 175,
+          },
+        }}
       />
     </View>
   </SafeAreaView>

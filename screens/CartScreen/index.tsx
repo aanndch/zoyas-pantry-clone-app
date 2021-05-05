@@ -40,9 +40,13 @@ const CartScreen = () => {
             <View style={styles.checkoutButton}>
               <Button
                 text="Proceed to checkout"
-                width="100%"
+                buttonDimensions={{
+                  button: {
+                    width: "100%",
+                  },
+                }}
                 onPressFn={() => {}}
-                styles={{ marginBottom: 30 }}
+                style={{ marginBottom: 30 }}
               />
             </View>
           </>

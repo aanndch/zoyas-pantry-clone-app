@@ -1,9 +1,11 @@
 import { StyleSheet } from "react-native";
+import COLORS from "../../colors";
+import { Poppins } from "../../constants";
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fafafa",
+    backgroundColor: COLORS.background,
     paddingHorizontal: 20,
   },
   banner: {
@@ -22,16 +24,16 @@ const styles = StyleSheet.create({
     paddingBottom: 20,
   },
   headingText: {
-    fontFamily: "Poppins_200ExtraLight",
+    fontFamily: Poppins.ExtraLight,
     fontSize: 23,
     marginBottom: 15,
   },
   textBold: {
-    fontFamily: "Poppins_700Bold",
+    fontFamily: Poppins.Bold,
     fontSize: 23,
   },
   text: {
-    fontFamily: "Poppins_400Regular",
+    fontFamily: Poppins.Regular,
     fontSize: 10,
   },
 });

@@ -1,10 +1,12 @@
 import { StyleSheet } from "react-native";
+import COLORS from "../../colors";
+import { PTSans } from "../../constants";
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingHorizontal: 20,
-    backgroundColor: "#fafafa",
+    backgroundColor: COLORS.background,
   },
   headingContainer: {
     paddingTop: 50,
@@ -12,7 +14,7 @@ const styles = StyleSheet.create({
   },
   heading: {
     fontSize: 30,
-    fontFamily: "PTSans_700Bold",
+    fontFamily: PTSans.Bold,
     letterSpacing: 0.3,
   },
 });

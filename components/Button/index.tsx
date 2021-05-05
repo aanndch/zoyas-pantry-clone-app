@@ -5,29 +5,41 @@ import styles from "./styles";
 
 interface ButtonProps {
   text: string;
-  width: number | string;
+  buttonDimensions: {
+    button: Object;
+    shadow?: Object;
+  };
   onPressFn: () => void;
-  styles?: Object;
+  style?: Object;
+  fontSize?: number;
 }
 
 const Button = ({
   text,
   onPressFn,
-  width,
-  styles: customStyles,
+  buttonDimensions: { button, shadow },
+  style: customStyles,
+  fontSize,
 }: ButtonProps) => {
-  const buttonDimensions = { width };
-
   return (
     <View style={customStyles}>
       <TouchableOpacity
         onPress={onPressFn}
         activeOpacity={0.8}
-        style={[styles.button, buttonDimensions]}
+        style={[styles.button, button]}
       >
-        <Text style={styles.buttonText}>{text}</Text>
+        <Text
+          style={[
+            styles.buttonText,
+            {
+              fontSize,
+            },
+          ]}
+        >
+          {text}
+        </Text>
       </TouchableOpacity>
-      <View style={[styles.buttonShadow, buttonDimensions]}></View>
+      <View style={[styles.buttonShadow, button, shadow]}></View>
     </View>
   );
 };

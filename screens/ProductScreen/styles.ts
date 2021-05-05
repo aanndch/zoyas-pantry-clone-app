@@ -1,10 +1,11 @@
 import { StyleSheet } from "react-native";
 import COLORS from "../../colors";
+import { PTSans } from "../../constants";
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fafafa",
+    backgroundColor: COLORS.background,
     paddingHorizontal: 20,
     position: "relative",
   },
@@ -21,7 +22,7 @@ const styles = StyleSheet.create({
     left: 10,
   },
   name: {
-    fontFamily: "PTSans_700Bold",
+    fontFamily: PTSans.Bold,
     fontSize: 22,
     marginRight: 10,
     letterSpacing: 0.3,
@@ -32,13 +33,13 @@ const styles = StyleSheet.create({
     letterSpacing: 0.3,
   },
   category: {
-    fontFamily: "PTSans_400Regular",
+    fontFamily: PTSans.Regular,
     color: "#151515",
     fontSize: 13,
     letterSpacing: 0.3,
   },
   description: {
-    fontFamily: "PTSans_400Regular",
+    fontFamily: PTSans.Regular,
     fontSize: 13,
     textAlign: "justify",
   },
@@ -68,12 +69,12 @@ const styles = StyleSheet.create({
     width: 22,
   },
   tagName: {
-    fontFamily: "PTSans_400Regular",
+    fontFamily: PTSans.Regular,
     fontSize: 10,
     marginTop: 3,
   },
   price: {
-    fontFamily: "PTSans_700Bold",
+    fontFamily: PTSans.Bold,
     fontSize: 18,
   },
   metaContainer: {
@@ -87,13 +88,13 @@ const styles = StyleSheet.create({
     flexDirection: "row",
   },
   metaHeading: {
-    fontFamily: "PTSans_400Regular",
+    fontFamily: PTSans.Regular,
     fontSize: 14,
     marginRight: 10,
     letterSpacing: 0.3,
   },
   metaText: {
-    fontFamily: "PTSans_700Bold",
+    fontFamily: PTSans.Bold,
     fontSize: 14,
     letterSpacing: 0.3,
   },

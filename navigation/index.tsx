@@ -8,14 +8,18 @@ import { createStackNavigator } from "@react-navigation/stack";
 import * as React from "react";
 import { StyleSheet } from "react-native";
 import Image from "react-native-remote-svg";
+import COLORS from "../colors";
 
 import CustomDrawer from "../components/CustomDrawer";
 import TotalCartItems from "../components/TotalCartItems";
 import CartScreen from "../screens/CartScreen";
 import HomeScreen from "../screens/HomeScreen";
+import LoginScreen from "../screens/LoginScreen";
+import ForgotPasswordScreen from "../screens/ForgotPasswordScreen";
 import ProductScreen from "../screens/ProductScreen";
 // import NewInScreen from "../screens/NewInScreen";
 import ProductsScreen from "../screens/ProductsScreen";
+import RegisterScreen from "../screens/RegisterScreen";
 import WishlistScreen from "../screens/WishlistScreen";
 import {
   CartStackParamList,
@@ -36,13 +40,12 @@ const Navigation = () => (
       drawerStyle={{ width: "100%" }}
       drawerContent={(props) => <CustomDrawer {...props} />}
     >
-      <Drawer.Screen name="Home" component={HomeStack} />
       <Drawer.Screen name="NewIn" component={HomeStack} />
       <Drawer.Screen name="BestSellers" component={HomeStack} />
       <Drawer.Screen name="Pantry" component={HomeStack} />
       <Drawer.Screen name="WholeFoods" component={HomeStack} />
       <Drawer.Screen name="Favorites" component={WishlistStack} />
-      <Drawer.Screen name="Login" component={HomeStack} />
+      <Drawer.Screen name="Login" component={RegisterScreen} />
       <Drawer.Screen name="Cart" component={CartStack} />
     </Drawer.Navigator>
   </NavigationContainer>
@@ -65,7 +68,7 @@ const HomeStack = ({ navigation }: HomeStackProps) => (
     screenOptions={{
       headerStyle: {
         elevation: 0,
-        backgroundColor: "#fafafa",
+        backgroundColor: COLORS.background,
       },
       headerLeftContainerStyle: {
         marginLeft: 20,
@@ -103,7 +106,7 @@ const WishlistStack = ({ navigation }: WishlistStackProps) => (
     screenOptions={{
       headerStyle: {
         elevation: 0,
-        backgroundColor: "#fafafa",
+        backgroundColor: COLORS.background,
       },
       headerLeftContainerStyle: {
         marginLeft: 20,
@@ -140,7 +143,7 @@ const CartStack = ({ navigation }: CartStackProps) => (
     screenOptions={{
       headerStyle: {
         elevation: 0,
-        backgroundColor: "#fafafa",
+        backgroundColor: COLORS.background,
       },
       headerLeftContainerStyle: {
         marginLeft: 20,

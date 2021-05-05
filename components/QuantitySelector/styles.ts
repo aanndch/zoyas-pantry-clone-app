@@ -1,5 +1,6 @@
 import { StyleSheet } from "react-native";
 import COLORS from "../../colors";
+import { PTSans } from "../../constants";
 
 const styles = StyleSheet.create({
   quantitySelector: {
@@ -25,7 +26,7 @@ const styles = StyleSheet.create({
   quantity: {
     color: COLORS.black,
     fontSize: 17,
-    fontFamily: "PTSans_700Bold",
+    fontFamily: PTSans.Bold,
     textAlign: "center",
     width: 40,
   },

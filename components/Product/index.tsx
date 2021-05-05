@@ -60,7 +60,11 @@ const Product = ({
         {product.inStock ? (
           <Button
             text="Add to Bag"
-            width={100}
+            buttonDimensions={{
+              button: {
+                width: 100,
+              },
+            }}
             onPressFn={() => {
               console.log("Added to bag!");
             }}

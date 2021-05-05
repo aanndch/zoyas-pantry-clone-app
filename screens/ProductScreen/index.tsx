@@ -76,10 +76,14 @@ const ProductScreen = ({ route }: ProductScreenProps) => {
         <View style={styles.footer}>
           <Text style={styles.price}>${product.price}</Text>
           <Button
-            width={150}
+            buttonDimensions={{
+              button: {
+                width: 150,
+              },
+            }}
             text="Add to Bag"
             onPressFn={() => {}}
-            styles={{ alignSelf: "flex-end" }}
+            style={{ alignSelf: "flex-end" }}
           />
         </View>
       </View>

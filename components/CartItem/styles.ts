@@ -1,5 +1,6 @@
 import { StyleSheet } from "react-native";
 import COLORS from "../../colors";
+import { PTSans } from "../../constants";
 
 const styles = StyleSheet.create({
   container: {
@@ -11,7 +12,7 @@ const styles = StyleSheet.create({
     elevation: 2,
     marginHorizontal: 20,
     marginBottom: 15,
-    backgroundColor: "#fafafa",
+    backgroundColor: COLORS.background,
     padding: 15,
   },
   favoriteIcon: {
@@ -46,13 +47,13 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   weight: {
-    fontFamily: "PTSans_400Regular",
+    fontFamily: PTSans.Regular,
     fontSize: 11,
     color: "black",
     letterSpacing: 0.3,
   },
   name: {
-    fontFamily: "PTSans_700Bold",
+    fontFamily: PTSans.Bold,
     marginRight: 20,
     color: COLORS.black,
     fontSize: 15,
@@ -64,7 +65,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   price: {
-    fontFamily: "PTSans_400Regular",
+    fontFamily: PTSans.Regular,
     color: COLORS.black,
     fontSize: 15,
     letterSpacing: 0.3,

@@ -1,5 +1,6 @@
 import { Dimensions, StyleSheet } from "react-native";
 import COLORS from "../../colors";
+import { PTSans } from "../../constants";
 
 const styles = StyleSheet.create({
   container: {
@@ -19,7 +20,7 @@ const styles = StyleSheet.create({
   },
   headingText: {
     fontSize: 15,
-    fontFamily: "PTSans_700Bold",
+    fontFamily: PTSans.Bold,
     color: "#ffffff",
     marginLeft: 13,
   },
@@ -63,7 +64,7 @@ const styles = StyleSheet.create({
     borderRadius: 50,
   },
   filterTagText: {
-    fontFamily: "PTSans_400Regular",
+    fontFamily: PTSans.Regular,
     marginRight: 7,
   },
   filterTagIcon: {
@@ -74,7 +75,7 @@ const styles = StyleSheet.create({
   },
   clearAll: {
     marginTop: 10,
-    fontFamily: "PTSans_400Regular",
+    fontFamily: PTSans.Regular,
     textDecorationLine: "underline",
     fontSize: 15,
   },

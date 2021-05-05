@@ -26,7 +26,11 @@ const EmptyScreen = ({ heading, inWishlist }: EmptyScreenProps) => {
       <Text style={styles.subheading}>Start adding items!</Text>
       <Button
         text="Explore the range"
-        width={175}
+        buttonDimensions={{
+          button: {
+            width: 175,
+          },
+        }}
         onPressFn={() => navigation.navigate("ProductsScreen")}
         styles={{ marginTop: 30 }}
       />

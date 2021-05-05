@@ -1,5 +1,6 @@
 import { StyleSheet } from "react-native";
 import COLORS from "../../colors";
+import { PTSans } from "../../constants";
 
 const styles = StyleSheet.create({
   button: {
@@ -11,7 +12,7 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     marginTop: 3,
-    fontFamily: "PTSans_700Bold",
+    fontFamily: PTSans.Bold,
     fontSize: 13,
     color: "#402661",
     letterSpacing: 0.3,

@@ -1,4 +1,5 @@
 import { StyleSheet } from "react-native";
+import { PTSans } from "../../constants";
 
 const styles = StyleSheet.create({
   container: {
@@ -20,12 +21,12 @@ const styles = StyleSheet.create({
   },
   details: {},
   categoryName: {
-    fontFamily: "PTSans_400Regular",
+    fontFamily: PTSans.Regular,
     fontSize: 11,
     marginBottom: 7,
   },
   name: {
-    fontFamily: "PTSans_400Regular",
+    fontFamily: PTSans.Regular,
     fontSize: 15,
   },
   footer: {
@@ -35,7 +36,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   price: {
-    fontFamily: "PTSans_700Bold",
+    fontFamily: PTSans.Bold,
     fontSize: 18,
     letterSpacing: 0.3,
   },

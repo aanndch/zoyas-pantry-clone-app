@@ -1,5 +1,6 @@
 import { StyleSheet } from "react-native";
 import COLORS from "../../../colors";
+import { PTSans } from "../../../constants";
 
 const styles = StyleSheet.create({
   container: {
@@ -14,19 +15,19 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: 14,
-    fontFamily: "PTSans_700Bold",
+    fontFamily: PTSans.Bold,
     letterSpacing: 0.3,
   },
   option: {
     paddingTop: 15,
   },
   optionText: {
-    fontFamily: "PTSans_400Regular",
+    fontFamily: PTSans.Regular,
     fontSize: 14,
     color: COLORS.black,
   },
   selectedOptionText: {
-    fontFamily: "PTSans_700Bold",
+    fontFamily: PTSans.Bold,
     fontSize: 14,
     color: COLORS.green,
   },

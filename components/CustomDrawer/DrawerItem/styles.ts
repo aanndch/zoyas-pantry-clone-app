@@ -1,5 +1,6 @@
 import { StyleSheet } from "react-native";
 import COLORS from "../../../colors";
+import { PTSans } from "../../../constants";
 
 const styles = StyleSheet.create({
   drawerItem: {
@@ -12,11 +13,11 @@ const styles = StyleSheet.create({
   },
   drawerItemTextTeal: {
     color: COLORS.green,
-    fontFamily: "PTSans_700Bold",
+    fontFamily: PTSans.Bold,
     fontSize: 16,
   },
   drawerItemText: {
-    fontFamily: "PTSans_700Bold",
+    fontFamily: PTSans.Bold,
     fontSize: 16,
     color: "#212629",
   },

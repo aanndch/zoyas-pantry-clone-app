@@ -39,7 +39,7 @@ const CustomDrawer = ({ navigation }: CustomDrawerProps) => (
     <DrawerItem
       title="Login"
       navigation={navigation}
-      destination="Home"
+      destination="Login"
       icon={
         <Ionicons name="md-happy" size={25} style={styles.drawerItemIcon} />
       }

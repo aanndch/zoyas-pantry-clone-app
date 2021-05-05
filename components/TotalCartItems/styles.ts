@@ -1,4 +1,5 @@
 import { StyleSheet } from "react-native";
+import { PTSans } from "../../constants";
 
 const styles = StyleSheet.create({
   container: {
@@ -10,7 +11,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#b0e3d9",
   },
   text: {
-    fontFamily: "PTSans_700Bold",
+    fontFamily: PTSans.Bold,
     fontSize: 16,
   },
 });
