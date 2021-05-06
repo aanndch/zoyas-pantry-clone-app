@@ -32,7 +32,7 @@ const EmptyScreen = ({ heading, inWishlist }: EmptyScreenProps) => {
           },
         }}
         onPressFn={() => navigation.navigate("ProductsScreen")}
-        styles={{ marginTop: 30 }}
+        style={{ marginTop: 30 }}
       />
     </View>
   );

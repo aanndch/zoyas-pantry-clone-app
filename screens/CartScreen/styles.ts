@@ -34,9 +34,8 @@ const styles = StyleSheet.create({
   cartHeading: {
     fontSize: 16,
     fontFamily: PTSans.Bold,
-    marginBottom: 30,
+    marginBottom: 15,
     letterSpacing: 0.3,
-    paddingTop: 20,
     marginHorizontal: 20,
   },
   totalContainer: {

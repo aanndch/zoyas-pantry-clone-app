@@ -7,7 +7,7 @@ import EmptyScreen from "../EmptyScreen";
 import styles from "./styles";
 
 const WishlistScreen = () => {
-  const favorited = products.filter((product) => product.inWishlist);
+  const favorites = products.filter((product) => product.inWishlist);
 
   const header = (
     <View style={styles.headingContainer}>
@@ -16,31 +16,27 @@ const WishlistScreen = () => {
     </View>
   );
 
-  return (
-    <>
-      {favorited ? (
-        <View style={styles.container}>
-          <FlatList
-            data={favorited}
-            renderItem={({ item }) => (
-              <Product
-                product={item}
-                insideWishlist={true}
-                styles={{ marginBottom: 20 }}
-              />
-            )}
-            ListHeaderComponent={() => header}
-            keyExtractor={(item) => item.id}
-            showsVerticalScrollIndicator={false}
+  return favorites.length ? (
+    <View style={styles.container}>
+      <FlatList
+        data={favorites}
+        renderItem={({ item }) => (
+          <Product
+            product={item}
+            insideWishlist={true}
+            styles={{ marginBottom: 20 }}
           />
-        </View>
-      ) : (
-        <EmptyScreen
-          heading="No products added to the wishlist."
-          inWishlist={true}
-        />
-      )}
-    </>
+        )}
+        ListHeaderComponent={() => header}
+        keyExtractor={(item) => item.id}
+        showsVerticalScrollIndicator={false}
+      />
+    </View>
+  ) : (
+    <EmptyScreen
+      heading="No products added to the wishlist."
+      inWishlist={true}
+    />
   );
 };
 

@@ -1,12 +1,10 @@
-import React, { useState } from "react";
-import { Text, TextInput, View, TouchableOpacity } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
 import { StackNavigationProp } from "@react-navigation/stack";
-
+import React, { useState } from "react";
+import { Text, TouchableOpacity, View } from "react-native";
 import Button from "../../components/Button";
+import TextField from "../../components/TextField";
 import { HomeStackParamList } from "../../types";
 import styles from "./styles";
-import TextField from "../../components/TextField";
 
 interface LoginScreenProps {
   navigation: StackNavigationProp<HomeStackParamList>;
@@ -17,7 +15,7 @@ const HomeScreen = ({ navigation }: LoginScreenProps) => {
   const [password, setPassword] = useState<string>("");
 
   return (
-    <SafeAreaView style={styles.container}>
+    <View style={styles.container}>
       <View>
         <View>
           <Text style={styles.boldHeading}>Login to your</Text>
@@ -68,7 +66,7 @@ const HomeScreen = ({ navigation }: LoginScreenProps) => {
           <Text style={styles.registerButtonText}>Create an account</Text>
         </TouchableOpacity>
       </View>
-    </SafeAreaView>
+    </View>
   );
 };
 

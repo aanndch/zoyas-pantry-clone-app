@@ -1,11 +1,7 @@
-export type DrawerParamList = {
+export type TabParamList = {
   Home: undefined;
-  NewIn: undefined;
-  BestSellers: undefined;
-  Pantry: undefined;
-  WholeFoods: undefined;
-  Favorites: undefined;
-  Login: undefined;
+  Search: undefined;
+  Wishlist: undefined;
   Cart: undefined;
 };
 
@@ -13,6 +9,14 @@ export type HomeStackParamList = {
   Home: undefined;
   ProductsScreen: undefined;
   ProductScreen: undefined;
+  CartScreen: undefined;
+};
+
+export type SearchStackParamList = {
+  Home: undefined;
+  ProductsScreen: undefined;
+  ProductScreen: undefined;
+  CartScreen: undefined;
 };
 
 export type WishlistStackParamList = {
@@ -22,6 +26,7 @@ export type WishlistStackParamList = {
 
 export type CartStackParamList = {
   Cart: undefined;
+  ProductScreen: undefined;
 };
 
 export type ProductType = {

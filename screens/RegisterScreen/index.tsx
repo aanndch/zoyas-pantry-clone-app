@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Text, View, TouchableOpacity } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
 import { StackNavigationProp } from "@react-navigation/stack";
 
 import Button from "../../components/Button";
@@ -19,7 +18,7 @@ const HomeScreen = ({ navigation }: RegisterScreenProps) => {
   const [password, setPassword] = useState<string>("");
 
   return (
-    <SafeAreaView style={styles.container}>
+    <View style={styles.container}>
       <View>
         <View>
           <Text style={styles.boldHeading}>Register an account</Text>
@@ -78,7 +77,7 @@ const HomeScreen = ({ navigation }: RegisterScreenProps) => {
           <Text style={styles.loginText}>Login</Text>
         </TouchableOpacity>
       </View>
-    </SafeAreaView>
+    </View>
   );
 };
 

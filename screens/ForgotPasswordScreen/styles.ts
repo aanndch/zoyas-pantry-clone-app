@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
   helpText: {
-    fontSize: 12,
+    fontSize: 14,
     fontFamily: PTSans.Regular,
     marginTop: 16,
     marginBottom: 20,

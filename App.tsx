@@ -11,6 +11,7 @@ import {
 import { PTSans_400Regular, PTSans_700Bold } from "@expo-google-fonts/pt-sans";
 
 import Navigation from "./navigation";
+import COLORS from "./colors";
 
 export default function App() {
   let [fontsLoaded] = useFonts({
@@ -26,7 +27,11 @@ export default function App() {
   }
 
   return (
-    <SafeAreaProvider>
+    <SafeAreaProvider
+      style={{
+        backgroundColor: COLORS.background,
+      }}
+    >
       <Navigation />
       <StatusBar style="auto" />
     </SafeAreaProvider>

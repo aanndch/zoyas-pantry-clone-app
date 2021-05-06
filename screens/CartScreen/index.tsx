@@ -46,7 +46,7 @@ const CartScreen = () => {
                   },
                 }}
                 onPressFn={() => {}}
-                style={{ marginBottom: 30 }}
+                style={{ marginBottom: 20 }}
               />
             </View>
           </>

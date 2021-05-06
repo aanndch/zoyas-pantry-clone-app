@@ -4,6 +4,8 @@ const COLORS = {
   lightgreen: "#b0e3d9",
   iconPurple: "#402661",
   background: "#fafafa",
+  tabIconPurple: "#623F93",
+  tabIconGray: "#DDDDDD",
 };
 
 export default COLORS;

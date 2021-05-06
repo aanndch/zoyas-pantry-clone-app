@@ -1,12 +1,10 @@
-import React, { useState } from "react";
-import { Text, TextInput, View, TouchableOpacity } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
 import { StackNavigationProp } from "@react-navigation/stack";
-
+import React, { useState } from "react";
+import { Text, View } from "react-native";
 import Button from "../../components/Button";
+import TextField from "../../components/TextField";
 import { HomeStackParamList } from "../../types";
 import styles from "./styles";
-import TextField from "../../components/TextField";
 
 interface ForgotPasswordScreenProps {
   navigation: StackNavigationProp<HomeStackParamList>;
@@ -16,7 +14,7 @@ const ForgotPasswordScreen = ({ navigation }: ForgotPasswordScreenProps) => {
   const [email, setEmail] = useState<string>("");
 
   return (
-    <SafeAreaView style={styles.container}>
+    <View style={styles.container}>
       <View>
         <Text style={styles.boldHeading}>Forgot your password?</Text>
         <Text style={styles.regularHeading}>Please enter your email</Text>
@@ -44,7 +42,7 @@ const ForgotPasswordScreen = ({ navigation }: ForgotPasswordScreenProps) => {
           style={styles.forgotButton}
         />
       </View>
-    </SafeAreaView>
+    </View>
   );
 };
 

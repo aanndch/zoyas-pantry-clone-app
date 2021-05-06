@@ -1,20 +1,12 @@
-import { StackNavigationProp } from "@react-navigation/stack";
 import React from "react";
-import { View, FlatList } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
-
-import Product from "../../components/Product";
+import { FlatList, View } from "react-native";
 import Filter from "../../components/Filter";
+import Product from "../../components/Product";
 import { products } from "../../data";
-import { HomeStackParamList } from "../../types";
 import styles from "./styles";
 
-interface ProductsScreenProps {
-  navigation: StackNavigationProp<HomeStackParamList>;
-}
-
-const ProductsScreen = ({ navigation }: ProductsScreenProps) => (
-  <SafeAreaView style={styles.container}>
+const ProductsScreen = () => (
+  <View style={styles.container}>
     <Filter />
     <FlatList
       data={products}
@@ -31,7 +23,7 @@ const ProductsScreen = ({ navigation }: ProductsScreenProps) => (
       ListFooterComponent={() => <View style={{ marginVertical: 5 }} />}
       showsVerticalScrollIndicator={false}
     />
-  </SafeAreaView>
+  </View>
 );
 
 export default ProductsScreen;

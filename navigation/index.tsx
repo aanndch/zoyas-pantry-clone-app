@@ -1,177 +1,157 @@
-import { Feather } from "@expo/vector-icons";
-import {
-  createDrawerNavigator,
-  DrawerNavigationProp,
-} from "@react-navigation/drawer";
+import { AntDesign, Feather, Ionicons } from "@expo/vector-icons";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { NavigationContainer } from "@react-navigation/native";
-import { createStackNavigator } from "@react-navigation/stack";
+import {
+  createStackNavigator,
+  StackNavigationOptions,
+} from "@react-navigation/stack";
 import * as React from "react";
 import { StyleSheet } from "react-native";
 import Image from "react-native-remote-svg";
 import COLORS from "../colors";
-
-import CustomDrawer from "../components/CustomDrawer";
-import TotalCartItems from "../components/TotalCartItems";
 import CartScreen from "../screens/CartScreen";
 import HomeScreen from "../screens/HomeScreen";
-import LoginScreen from "../screens/LoginScreen";
-import ForgotPasswordScreen from "../screens/ForgotPasswordScreen";
 import ProductScreen from "../screens/ProductScreen";
-// import NewInScreen from "../screens/NewInScreen";
 import ProductsScreen from "../screens/ProductsScreen";
-import RegisterScreen from "../screens/RegisterScreen";
 import WishlistScreen from "../screens/WishlistScreen";
 import {
   CartStackParamList,
-  DrawerParamList,
   HomeStackParamList,
+  SearchStackParamList,
+  TabParamList,
   WishlistStackParamList,
 } from "../types";
 
-const Drawer = createDrawerNavigator<DrawerParamList>();
+const appBar: StackNavigationOptions = {
+  headerStyle: {
+    elevation: 0,
+    backgroundColor: COLORS.background,
+  },
+  headerLeftContainerStyle: {
+    marginLeft: 20,
+  },
+  headerTitleAlign: "center",
+  headerTitle: () => (
+    <Image
+      source={{
+        uri: `https://zoyaspantry.com.au/wp-content/themes/zoyas-pantry/assets/images/Logo.svg`,
+      }}
+      style={styles.logo}
+    />
+  ),
+  headerRightContainerStyle: {
+    marginRight: 20,
+  },
+};
 
-const Stack = createStackNavigator<HomeStackParamList>();
+const Tab = createBottomTabNavigator<TabParamList>();
+
+const HomeStack = createStackNavigator<HomeStackParamList>();
+const SearchStack = createStackNavigator<SearchStackParamList>();
+const WishlistStack = createStackNavigator<WishlistStackParamList>();
+const CartStack = createStackNavigator<CartStackParamList>();
 
 const Navigation = () => (
   <NavigationContainer>
-    <Drawer.Navigator
-      initialRouteName="Home"
-      drawerType="slide"
-      drawerStyle={{ width: "100%" }}
-      drawerContent={(props) => <CustomDrawer {...props} />}
+    <Tab.Navigator
+      tabBarOptions={{
+        showLabel: false,
+        style: {
+          backgroundColor: COLORS.background,
+          elevation: 10,
+          borderTopWidth: 0,
+          borderTopLeftRadius: 10,
+          borderTopRightRadius: 10,
+          height: 60,
+        },
+      }}
     >
-      <Drawer.Screen name="NewIn" component={HomeStack} />
-      <Drawer.Screen name="BestSellers" component={HomeStack} />
-      <Drawer.Screen name="Pantry" component={HomeStack} />
-      <Drawer.Screen name="WholeFoods" component={HomeStack} />
-      <Drawer.Screen name="Favorites" component={WishlistStack} />
-      <Drawer.Screen name="Login" component={RegisterScreen} />
-      <Drawer.Screen name="Cart" component={CartStack} />
-    </Drawer.Navigator>
+      <Tab.Screen
+        name="Home"
+        component={HomeStackScreen}
+        options={{
+          tabBarIcon: ({ focused }) => (
+            <Ionicons
+              name={focused ? "home" : "home-outline"}
+              size={25}
+              color={focused ? COLORS.tabIconPurple : COLORS.tabIconGray}
+            />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Search"
+        component={SearchStackScreen}
+        options={{
+          tabBarIcon: ({ focused }) => (
+            <Feather
+              name="search"
+              size={25}
+              color={focused ? COLORS.tabIconPurple : COLORS.tabIconGray}
+            />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Wishlist"
+        component={WishlistStackScreen}
+        options={{
+          tabBarIcon: ({ focused }) => (
+            <AntDesign
+              name={focused ? "heart" : "hearto"}
+              size={25}
+              color={focused ? COLORS.tabIconPurple : COLORS.tabIconGray}
+            />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Cart"
+        component={CartStackScreen}
+        options={{
+          tabBarIcon: ({ focused }) => (
+            <Ionicons
+              name={focused ? "cart" : "cart-outline"}
+              size={25}
+              color={focused ? COLORS.tabIconPurple : COLORS.tabIconGray}
+            />
+          ),
+        }}
+      />
+    </Tab.Navigator>
   </NavigationContainer>
 );
 
-interface HomeStackProps {
-  navigation: DrawerNavigationProp<HomeStackParamList>;
-}
-
-interface WishlistStackProps {
-  navigation: DrawerNavigationProp<WishlistStackParamList>;
-}
-
-interface CartStackProps {
-  navigation: DrawerNavigationProp<CartStackParamList>;
-}
-
-const HomeStack = ({ navigation }: HomeStackProps) => (
-  <Stack.Navigator
-    screenOptions={{
-      headerStyle: {
-        elevation: 0,
-        backgroundColor: COLORS.background,
-      },
-      headerLeftContainerStyle: {
-        marginLeft: 20,
-      },
-      headerLeft: () => (
-        <Feather
-          name="menu"
-          size={35}
-          onPress={() => navigation.openDrawer()}
-        />
-      ),
-      headerTitleAlign: "center",
-      headerTitle: () => (
-        <Image
-          source={{
-            uri: `https://zoyaspantry.com.au/wp-content/themes/zoyas-pantry/assets/images/Logo.svg`,
-          }}
-          style={styles.logo}
-        />
-      ),
-      headerRight: () => <TotalCartItems />,
-      headerRightContainerStyle: {
-        marginRight: 20,
-      },
-    }}
-  >
-    <Stack.Screen name="Home" component={HomeScreen} />
-    <Stack.Screen name="ProductsScreen" component={ProductsScreen} />
-    <Stack.Screen name="ProductScreen" component={ProductScreen} />
-  </Stack.Navigator>
+const HomeStackScreen = () => (
+  <HomeStack.Navigator screenOptions={appBar}>
+    <HomeStack.Screen name="Home" component={HomeScreen} />
+    <HomeStack.Screen name="ProductsScreen" component={ProductsScreen} />
+    <HomeStack.Screen name="ProductScreen" component={ProductScreen} />
+    <HomeStack.Screen name="CartScreen" component={CartScreen} />
+  </HomeStack.Navigator>
 );
 
-const WishlistStack = ({ navigation }: WishlistStackProps) => (
-  <Stack.Navigator
-    screenOptions={{
-      headerStyle: {
-        elevation: 0,
-        backgroundColor: COLORS.background,
-      },
-      headerLeftContainerStyle: {
-        marginLeft: 20,
-      },
-      headerLeft: () => (
-        <Feather
-          name="menu"
-          size={35}
-          onPress={() => navigation.openDrawer()}
-        />
-      ),
-      headerTitleAlign: "center",
-      headerTitle: () => (
-        <Image
-          source={{
-            uri: `https://zoyaspantry.com.au/wp-content/themes/zoyas-pantry/assets/images/Logo.svg`,
-          }}
-          style={styles.logo}
-        />
-      ),
-      headerRight: () => <TotalCartItems />,
-      headerRightContainerStyle: {
-        marginRight: 20,
-      },
-    }}
-  >
-    <Stack.Screen name="Favorites" component={WishlistScreen} />
-    <Stack.Screen name="ProductScreen" component={ProductScreen} />
-  </Stack.Navigator>
+const SearchStackScreen = () => (
+  <SearchStack.Navigator screenOptions={appBar}>
+    <SearchStack.Screen name="Home" component={HomeScreen} />
+    <SearchStack.Screen name="ProductsScreen" component={ProductsScreen} />
+    <SearchStack.Screen name="ProductScreen" component={ProductScreen} />
+    <SearchStack.Screen name="CartScreen" component={CartScreen} />
+  </SearchStack.Navigator>
 );
 
-const CartStack = ({ navigation }: CartStackProps) => (
-  <Stack.Navigator
-    screenOptions={{
-      headerStyle: {
-        elevation: 0,
-        backgroundColor: COLORS.background,
-      },
-      headerLeftContainerStyle: {
-        marginLeft: 20,
-      },
-      headerLeft: () => (
-        <Feather
-          name="menu"
-          size={35}
-          onPress={() => navigation.openDrawer()}
-        />
-      ),
-      headerTitleAlign: "center",
-      headerTitle: () => (
-        <Image
-          source={{
-            uri: `https://zoyaspantry.com.au/wp-content/themes/zoyas-pantry/assets/images/Logo.svg`,
-          }}
-          style={styles.logo}
-        />
-      ),
-      headerRight: () => <TotalCartItems />,
-      headerRightContainerStyle: {
-        marginRight: 20,
-      },
-    }}
-  >
-    <Stack.Screen name="Cart" component={CartScreen} />
-  </Stack.Navigator>
+const WishlistStackScreen = () => (
+  <WishlistStack.Navigator screenOptions={appBar}>
+    <WishlistStack.Screen name="Favorites" component={WishlistScreen} />
+    <WishlistStack.Screen name="ProductScreen" component={ProductScreen} />
+  </WishlistStack.Navigator>
+);
+
+const CartStackScreen = () => (
+  <CartStack.Navigator screenOptions={appBar}>
+    <CartStack.Screen name="Cart" component={CartScreen} />
+    <CartStack.Screen name="ProductScreen" component={ProductScreen} />
+  </CartStack.Navigator>
 );
 
 const styles = StyleSheet.create({

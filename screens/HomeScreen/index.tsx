@@ -1,8 +1,6 @@
-import React from "react";
-import { Text, Image, View } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
 import { StackNavigationProp } from "@react-navigation/stack";
-
+import React from "react";
+import { Image, Text, View } from "react-native";
 import Button from "../../components/Button";
 import { HomeStackParamList } from "../../types";
 import styles from "./styles";
@@ -12,7 +10,7 @@ interface HomeScreenProps {
 }
 
 const HomeScreen = ({ navigation }: HomeScreenProps) => (
-  <SafeAreaView style={styles.container}>
+  <View style={styles.container}>
     <View style={styles.banner}>
       <Image
         source={{ uri: "https://i.imgur.com/zHh95Hx.png" }}
@@ -39,7 +37,7 @@ const HomeScreen = ({ navigation }: HomeScreenProps) => (
         }}
       />
     </View>
-  </SafeAreaView>
+  </View>
 );
 
 export default HomeScreen;
