@@ -55,14 +55,10 @@ const CartScreen = () => {
     </View>
   );
 
-  return (
-    <>
-      {cart.length === 0 ? (
-        <EmptyScreen heading="Your Shopping Bag is Empty." inWishlist={false} />
-      ) : (
-        cartDisplay
-      )}
-    </>
+  return cart.length === 0 ? (
+    <EmptyScreen heading="Your Shopping Bag is Empty." inWishlist={false} />
+  ) : (
+    cartDisplay
   );
 };
 

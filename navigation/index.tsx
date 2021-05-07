@@ -10,6 +10,7 @@ import { StyleSheet } from "react-native";
 import Image from "react-native-remote-svg";
 import COLORS from "../colors";
 import CartScreen from "../screens/CartScreen";
+import ForgotPasswordScreen from "../screens/ForgotPasswordScreen";
 import HomeScreen from "../screens/HomeScreen";
 import ProductScreen from "../screens/ProductScreen";
 import ProductsScreen from "../screens/ProductsScreen";
@@ -124,25 +125,23 @@ const Navigation = () => (
 
 const HomeStackScreen = () => (
   <HomeStack.Navigator screenOptions={appBar}>
-    <HomeStack.Screen name="Home" component={HomeScreen} />
+    <HomeStack.Screen name="HomeScreen" component={HomeScreen} />
     <HomeStack.Screen name="ProductsScreen" component={ProductsScreen} />
     <HomeStack.Screen name="ProductScreen" component={ProductScreen} />
-    <HomeStack.Screen name="CartScreen" component={CartScreen} />
   </HomeStack.Navigator>
 );
 
 const SearchStackScreen = () => (
   <SearchStack.Navigator screenOptions={appBar}>
-    <SearchStack.Screen name="Home" component={HomeScreen} />
+    <SearchStack.Screen name="HomeScreen" component={ForgotPasswordScreen} />
     <SearchStack.Screen name="ProductsScreen" component={ProductsScreen} />
     <SearchStack.Screen name="ProductScreen" component={ProductScreen} />
-    <SearchStack.Screen name="CartScreen" component={CartScreen} />
   </SearchStack.Navigator>
 );
 
 const WishlistStackScreen = () => (
   <WishlistStack.Navigator screenOptions={appBar}>
-    <WishlistStack.Screen name="Favorites" component={WishlistScreen} />
+    <WishlistStack.Screen name="Wishlist" component={WishlistScreen} />
     <WishlistStack.Screen name="ProductScreen" component={ProductScreen} />
   </WishlistStack.Navigator>
 );

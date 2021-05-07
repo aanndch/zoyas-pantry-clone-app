@@ -2,12 +2,12 @@ import React from "react";
 import { View, Text, FlatList } from "react-native";
 
 import Product from "../../components/Product";
-import { products } from "../../data";
+import { ProductType } from "../../types";
 import EmptyScreen from "../EmptyScreen";
 import styles from "./styles";
 
 const WishlistScreen = () => {
-  const favorites = products.filter((product) => product.inWishlist);
+  const wishlistedItems = [] as ProductType[];
 
   const header = (
     <View style={styles.headingContainer}>
@@ -16,10 +16,10 @@ const WishlistScreen = () => {
     </View>
   );
 
-  return favorites.length ? (
+  return wishlistedItems.length ? (
     <View style={styles.container}>
       <FlatList
-        data={favorites}
+        data={wishlistedItems}
         renderItem={({ item }) => (
           <Product
             product={item}
@@ -28,13 +28,14 @@ const WishlistScreen = () => {
           />
         )}
         ListHeaderComponent={() => header}
-        keyExtractor={(item) => item.id}
+        // TODO: Change key to ID generated from DB
+        keyExtractor={(item) => item.title}
         showsVerticalScrollIndicator={false}
       />
     </View>
   ) : (
     <EmptyScreen
-      heading="No products added to the wishlist."
+      heading="No products added to your wishlist."
       inWishlist={true}
     />
   );
