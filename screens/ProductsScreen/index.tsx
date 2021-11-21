@@ -18,7 +18,7 @@ const ProductsScreen = () => (
         />
       )}
       // TODO: Add id generated from DB
-      keyExtractor={(item) => item.title}
+      keyExtractor={(item, index) => index.toString()}
       ListHeaderComponent={() => <View style={{ marginVertical: 30 }} />}
       ListFooterComponent={() => <View style={{ marginVertical: 5 }} />}
       showsVerticalScrollIndicator={false}

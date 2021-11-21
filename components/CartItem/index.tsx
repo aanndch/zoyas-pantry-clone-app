@@ -40,7 +40,7 @@ const CartItem = ({ item }: CartItemProps) => {
             <Text style={styles.weight}>{item.weight}</Text>
           </View>
           <View style={styles.footer}>
-            <Text style={styles.price}>${totalPrice.toFixed(2)}</Text>
+            <Text style={styles.price}>{totalPrice.toFixed(2)}</Text>
             <QuantitySelector
               styles={{ width: 70, height: 25 }}
               iconSize={15}

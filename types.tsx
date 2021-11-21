@@ -8,7 +8,9 @@ export type TabParamList = {
 export type HomeStackParamList = {
   HomeScreen: undefined;
   ProductsScreen: undefined;
-  ProductScreen: undefined;
+  ProductScreen: {
+    product: ProductType
+  };
   CartScreen: undefined;
 };
 
@@ -20,13 +22,13 @@ export type SearchStackParamList = {
 };
 
 export type WishlistStackParamList = {
-  Wishlist: undefined;
+  WishlistScreen: undefined;
   ProductScreen: undefined;
   ProductsScreen: undefined;
 };
 
 export type CartStackParamList = {
-  Cart: undefined;
+  CartScreen: undefined;
   ProductScreen: undefined;
 };
 

@@ -3,10 +3,11 @@ import { View, Text, Image, TouchableOpacity } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 
-import { ProductType } from "../../types";
+import { HomeStackParamList, ProductType } from "../../types";
 import Button from "../Button";
 import styles from "./styles";
 import OutOfStockButton from "../OutOfStockButton";
+import { StackNavigationProp } from "@react-navigation/stack";
 
 interface ProductProps {
   product: ProductType;
@@ -19,7 +20,7 @@ const Product = ({
   insideWishlist,
   styles: customStyles,
 }: ProductProps) => {
-  const navigation = useNavigation();
+  const navigation = useNavigation<StackNavigationProp<HomeStackParamList>>();
 
   return (
     <View style={[styles.container, customStyles]}>
@@ -56,7 +57,7 @@ const Product = ({
         </View>
       </TouchableOpacity>
       <View style={styles.footer}>
-        <Text style={styles.price}>${product.price}</Text>
+        <Text style={styles.price}>{product.price}</Text>
         {product.inStock ? (
           <Button
             text="Add to Bag"

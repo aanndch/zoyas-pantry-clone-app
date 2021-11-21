@@ -42,7 +42,7 @@ const appBar: StackNavigationOptions = {
   ),
   headerRightContainerStyle: {
     marginRight: 20,
-  },
+  }
 };
 
 const Tab = createBottomTabNavigator<TabParamList>();
@@ -55,16 +55,15 @@ const CartStack = createStackNavigator<CartStackParamList>();
 const Navigation = () => (
   <NavigationContainer>
     <Tab.Navigator
-      tabBarOptions={{
-        showLabel: false,
-        style: {
+      screenOptions={{
+        tabBarShowLabel: false,
+        tabBarStyle: {
           backgroundColor: COLORS.background,
           elevation: 10,
           borderTopWidth: 0,
-          borderTopLeftRadius: 10,
-          borderTopRightRadius: 10,
           height: 60,
         },
+        headerShown: false,
       }}
     >
       <Tab.Screen
@@ -141,14 +140,14 @@ const SearchStackScreen = () => (
 
 const WishlistStackScreen = () => (
   <WishlistStack.Navigator screenOptions={appBar}>
-    <WishlistStack.Screen name="Wishlist" component={WishlistScreen} />
+    <WishlistStack.Screen name="WishlistScreen" component={WishlistScreen} />
     <WishlistStack.Screen name="ProductScreen" component={ProductScreen} />
   </WishlistStack.Navigator>
 );
 
 const CartStackScreen = () => (
   <CartStack.Navigator screenOptions={appBar}>
-    <CartStack.Screen name="Cart" component={CartScreen} />
+    <CartStack.Screen name="CartScreen" component={CartScreen} />
     <CartStack.Screen name="ProductScreen" component={ProductScreen} />
   </CartStack.Navigator>
 );

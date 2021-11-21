@@ -26,7 +26,7 @@ const CartScreen = () => {
             <View style={styles.totalContainer}>
               <View style={styles.totalTextContainer}>
                 <Text style={styles.totalText}>Subtotal</Text>
-                <Text style={styles.totalText}>${subtotal}</Text>
+                <Text style={styles.totalText}>{subtotal}</Text>
               </View>
               <View style={styles.totalTextContainer}>
                 <Text style={styles.totalText}>Shipping</Text>
@@ -34,7 +34,7 @@ const CartScreen = () => {
               </View>
               <View style={styles.totalTextContainer}>
                 <Text style={styles.totalTextBold}>Total</Text>
-                <Text style={styles.totalTextBold}>${subtotal}</Text>
+                <Text style={styles.totalTextBold}>{subtotal}</Text>
               </View>
             </View>
             <View style={styles.checkoutButton}>
