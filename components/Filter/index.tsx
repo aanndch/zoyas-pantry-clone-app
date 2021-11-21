@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { View, Text, TouchableOpacity, FlatList } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
+import Animated, { useAnimatedStyle } from "react-native-reanimated";
+import { mix, useTiming } from "react-native-redash";
 
 import FilterItem from "./FilterItem";
 import { filters } from "../../data";
@@ -10,9 +12,13 @@ interface FilterProps {}
 
 const Filter = (props: FilterProps) => {
   const [isOpen, setIsOpen] = useState(false);
+  const transition = useTiming(isOpen);
   let [selectedFilters, setSelectedFilters] = useState<{
     [key: string]: string;
   }>({});
+  const animatedStyle = useAnimatedStyle(() => ({
+    height: mix(transition.value, 0, 6 * 51.3)
+  }));
 
   const addFilter = (name: string, selectedFilter: string) => {
     const updatedFilters = { ...selectedFilters };
@@ -79,25 +85,27 @@ const Filter = (props: FilterProps) => {
           </>
         )}
       </TouchableOpacity>
-      <FlatList
-        data={Object.keys(filters)}
-        renderItem={({ item, index }: { item: string; index: number }) => (
-          <FilterItem
-            curr={index}
-            name={item}
-            noOfFilters={Object.keys(filters).length}
-            options={filters[item]}
-            selectedFilters={Object.values(selectedFilters)}
-            addFilter={addFilter}
-            key={item}
-          />
-        )}
-        style={isOpen ? styles.filters : styles.hideFilters}
-        showsVerticalScrollIndicator={false}
-        ListFooterComponent={
-          Object.values(selectedFilters).length > 0 ? FilterTags : <View />
-        }
-      />
+      <Animated.View style={[styles.filters, animatedStyle]}>
+        <FlatList
+          data={Object.keys(filters)}
+          renderItem={({ item, index }: { item: string; index: number }) => (
+            <FilterItem
+              curr={index}
+              name={item}
+              noOfFilters={Object.keys(filters).length}
+              options={filters[item]}
+              selectedFilters={Object.values(selectedFilters)}
+              addFilter={addFilter}
+              key={item}
+            />
+          )}
+          keyExtractor={(item) => item}
+          showsVerticalScrollIndicator={false}
+          ListFooterComponent={
+            Object.values(selectedFilters).length > 0 ? FilterTags : <View />
+          }
+        />
+      </Animated.View>
     </View>
   );
 };

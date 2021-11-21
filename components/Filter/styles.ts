@@ -25,23 +25,23 @@ const styles = StyleSheet.create({
     marginLeft: 13,
   },
   filters: {
-    marginTop: 65,
+    top: 65,
     position: "absolute",
-    minHeight: 300,
+    // minHeight: 300,
     zIndex: 1,
     maxHeight: Dimensions.get("window").height * 0.74,
     width: "100%",
     paddingHorizontal: 25,
     backgroundColor: "#ffffff",
     borderRadius: 15,
-    shadowColor: "#8d8d8d26",
+    shadowColor: "#8d8d8d",
     shadowOffset: { width: 0, height: 1 },
     shadowOpacity: 0.8,
     shadowRadius: 2,
     elevation: 25,
   },
   hideFilters: {
-    display: "none",
+    // display: 'none'
   },
   filterFooter: {
     paddingBottom: 15,
